@@ -1100,6 +1100,17 @@
                 <div class="flex flex-wrap items-center gap-2.5">
                   <button
                     type="button"
+                    id="download-card-btn"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-midnight-deep bg-gradient-to-r from-gold-light via-gold to-marigold hover:brightness-110 shadow-md shadow-marigold/20 transition"
+                  >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span id="download-btn-label">Download Card</span>
+                  </button>
+
+                  <button
+                    type="button"
                     id="copy-wish-btn"
                     class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider bg-gold/20 hover:bg-gold/30 text-gold-light border border-gold/50 transition"
                   >
@@ -1523,6 +1534,8 @@
       const cardMessage = document.getElementById('card-message');
       const cardSubmessage = document.getElementById('card-submessage');
       const cardSender = document.getElementById('card-sender');
+      const downloadCardBtn = document.getElementById('download-card-btn');
+      const downloadBtnLabel = document.getElementById('download-btn-label');
       const copyWishBtn = document.getElementById('copy-wish-btn');
       const copyBtnLabel = document.getElementById('copy-btn-label');
       const shareWishBtn = document.getElementById('share-wish-btn');
@@ -1684,9 +1697,271 @@
         if (onDone) onDone();
       }
 
+      // Helper: Wrap text onto an HTML5 2D Canvas and return the new Y coordinate
+      function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight) {
+        const words = text.split(' ');
+        let line = '';
+        let currentY = y;
+
+        for (let n = 0; n < words.length; n++) {
+          const testLine = line + words[n] + ' ';
+          const metrics = ctx.measureText(testLine);
+          if (metrics.width > maxWidth && n > 0) {
+            ctx.fillText(line.trim(), x, currentY);
+            line = words[n] + ' ';
+            currentY += lineHeight;
+          } else {
+            line = testLine;
+          }
+        }
+        if (line.trim()) {
+          ctx.fillText(line.trim(), x, currentY);
+          currentY += lineHeight;
+        }
+        return currentY;
+      }
+
+      // Generate and download a high-resolution (1200x800) festive PNG Greeting Card
+      function downloadGreetingCardAsPNG() {
+        updateGreetingCard();
+
+        const canvas = document.createElement('canvas');
+        const W = 1200;
+        const H = 800;
+        canvas.width = W;
+        canvas.height = H;
+        const ctx = canvas.getContext('2d');
+
+        // 1. Rich Midnight Festive Gradient Background
+        const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+        bgGrad.addColorStop(0, '#0F051D');
+        bgGrad.addColorStop(0.5, '#1E0C35');
+        bgGrad.addColorStop(1, '#120623');
+        ctx.fillStyle = bgGrad;
+        ctx.fillRect(0, 0, W, H);
+
+        // Soft Ambient Radial Glows
+        const topGlow = ctx.createRadialGradient(W / 2, 165, 10, W / 2, 165, 340);
+        topGlow.addColorStop(0, 'rgba(255, 143, 0, 0.28)');
+        topGlow.addColorStop(0.5, 'rgba(183, 28, 28, 0.14)');
+        topGlow.addColorStop(1, 'rgba(15, 5, 29, 0)');
+        ctx.fillStyle = topGlow;
+        ctx.fillRect(0, 0, W, H);
+
+        // 2. Subtle Background Rangoli Mandala Watermark
+        ctx.save();
+        ctx.translate(W / 2, H / 2);
+        ctx.strokeStyle = 'rgba(212, 175, 55, 0.08)';
+        ctx.lineWidth = 2;
+        for (let r = 120; r <= 340; r += 55) {
+          ctx.beginPath();
+          ctx.arc(0, 0, r, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+        for (let a = 0; a < 12; a++) {
+          ctx.save();
+          ctx.rotate((a * Math.PI) / 6);
+          ctx.beginPath();
+          ctx.ellipse(0, 0, 260, 70, 0, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+        }
+        ctx.restore();
+
+        // 3. Double Ornate Gold Foil Frame & Corner Motifs
+        const borderGrad = ctx.createLinearGradient(0, 0, W, H);
+        borderGrad.addColorStop(0, '#F5E08E');
+        borderGrad.addColorStop(0.35, '#D4AF37');
+        borderGrad.addColorStop(0.7, '#FF8F00');
+        borderGrad.addColorStop(1, '#F5E08E');
+
+        ctx.strokeStyle = borderGrad;
+        ctx.lineWidth = 4;
+        ctx.strokeRect(32, 32, W - 64, H - 64);
+
+        ctx.strokeStyle = 'rgba(212, 175, 55, 0.45)';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(46, 46, W - 92, H - 92);
+
+        // Corner Decorative Diamonds
+        const corners = [
+          [46, 46],
+          [W - 46, 46],
+          [46, H - 46],
+          [W - 46, H - 46]
+        ];
+        corners.forEach(function (pt) {
+          ctx.save();
+          ctx.translate(pt[0], pt[1]);
+          ctx.fillStyle = '#FFD700';
+          ctx.beginPath();
+          ctx.arc(0, 0, 6, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = '#FF8F00';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.arc(0, 0, 14, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+        });
+
+        // 4. Top Header Text & Blessing Theme Badge
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#F5E08E';
+        ctx.font = '600 15px Poppins, sans-serif';
+        ctx.fillText('✦  SHUBH DEEPAVALI  •  FESTIVAL OF LIGHTS  ✦', W / 2, 86);
+
+        // Glowing Clay Diya Illustration at Top Center
+        const diyaX = W / 2;
+        const diyaY = 172;
+
+        // Flame Halo
+        const halo = ctx.createRadialGradient(diyaX, diyaY - 28, 4, diyaX, diyaY - 28, 52);
+        halo.addColorStop(0, 'rgba(255, 215, 0, 0.75)');
+        halo.addColorStop(0.5, 'rgba(255, 143, 0, 0.3)');
+        halo.addColorStop(1, 'rgba(255, 143, 0, 0)');
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(diyaX, diyaY - 28, 52, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Outer Flame
+        ctx.fillStyle = '#FF8F00';
+        ctx.beginPath();
+        ctx.moveTo(diyaX, diyaY - 62);
+        ctx.quadraticCurveTo(diyaX + 22, diyaY - 32, diyaX, diyaY - 6);
+        ctx.quadraticCurveTo(diyaX - 22, diyaY - 32, diyaX, diyaY - 62);
+        ctx.fill();
+
+        // Inner Flame
+        ctx.fillStyle = '#FFFDF8';
+        ctx.beginPath();
+        ctx.moveTo(diyaX, diyaY - 46);
+        ctx.quadraticCurveTo(diyaX + 11, diyaY - 26, diyaX, diyaY - 10);
+        ctx.quadraticCurveTo(diyaX - 11, diyaY - 26, diyaX, diyaY - 46);
+        ctx.fill();
+
+        // Diya Clay Bowl
+        const bowlGrad = ctx.createLinearGradient(diyaX - 55, diyaY, diyaX + 55, diyaY + 34);
+        bowlGrad.addColorStop(0, '#B71C1C');
+        bowlGrad.addColorStop(0.5, '#D4AF37');
+        bowlGrad.addColorStop(1, '#7F0000');
+        ctx.fillStyle = bowlGrad;
+        ctx.beginPath();
+        ctx.moveTo(diyaX - 54, diyaY - 4);
+        ctx.quadraticCurveTo(diyaX, diyaY + 8, diyaX + 54, diyaY - 4);
+        ctx.quadraticCurveTo(diyaX + 42, diyaY + 32, diyaX, diyaY + 32);
+        ctx.quadraticCurveTo(diyaX - 42, diyaY + 32, diyaX - 54, diyaY - 4);
+        ctx.closePath();
+        ctx.fill();
+        ctx.strokeStyle = '#FFD700';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // 5. Blessing Theme Pill
+        const pillText = cardThemePill.textContent.toUpperCase();
+        ctx.font = '600 13px Poppins, sans-serif';
+        const pillWidth = Math.max(220, ctx.measureText(pillText).width + 44);
+        const pillX = (W - pillWidth) / 2;
+        const pillY = 224;
+        ctx.fillStyle = 'rgba(183, 28, 28, 0.65)';
+        ctx.strokeStyle = '#D4AF37';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        if (typeof ctx.roundRect === 'function') {
+          ctx.roundRect(pillX, pillY, pillWidth, 32, 16);
+        } else {
+          ctx.rect(pillX, pillY, pillWidth, 32);
+        }
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#F5E08E';
+        ctx.fillText(pillText, W / 2, pillY + 21);
+
+        // 6. Salutation
+        ctx.fillStyle = '#F5E08E';
+        ctx.font = 'italic 26px "Playfair Display", Georgia, serif';
+        ctx.fillText(cardSalutation.textContent, W / 2, 310);
+
+        // 7. Main Blessing Quote
+        ctx.fillStyle = '#FFFDF8';
+        ctx.font = '400 36px "Rozha One", Georgia, serif';
+        const afterQuoteY = drawWrappedText(
+          ctx,
+          cardMessage.textContent,
+          W / 2,
+          372,
+          W - 220,
+          50
+        );
+
+        // 8. Secondary Sub-message
+        ctx.fillStyle = '#E2D4BA';
+        ctx.font = '400 18px Poppins, sans-serif';
+        drawWrappedText(
+          ctx,
+          cardSubmessage.textContent,
+          W / 2,
+          afterQuoteY + 22,
+          W - 260,
+          30
+        );
+
+        // 9. Divider Line & Sender Signature Footer
+        ctx.strokeStyle = 'rgba(212, 175, 55, 0.35)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(W / 2 - 220, H - 145);
+        ctx.lineTo(W / 2 + 220, H - 145);
+        ctx.stroke();
+
+        ctx.fillStyle = '#E2D4BA';
+        ctx.font = '500 13px Poppins, sans-serif';
+        ctx.fillText('LIT WITH WARMTH & DEVOTION BY', W / 2, H - 115);
+
+        ctx.fillStyle = '#FFD700';
+        ctx.font = '400 28px "Rozha One", Georgia, serif';
+        ctx.fillText(cardSender.textContent, W / 2, H - 82);
+
+        ctx.fillStyle = 'rgba(245, 224, 142, 0.65)';
+        ctx.font = '400 13px Poppins, sans-serif';
+        ctx.fillText('तमसो मा ज्योतिर्गमय  •  शुभ दीपावली', W / 2, H - 56);
+
+        // Trigger PNG File Download
+        const safeSender = (cardSender.textContent || 'Deepavali')
+          .replace(/[^a-z0-9_-]/gi, '-')
+          .replace(/-+/g, '-')
+          .replace(/^-|-$/g, '');
+        const fileName = 'Shubh-Deepavali-Card-' + (safeSender || 'Blessing') + '.png';
+
+        const dataUrl = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = fileName;
+        link.href = dataUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        downloadBtnLabel.textContent = 'Downloaded!';
+        copyToast.textContent = '🖼️ High-resolution Deepavali greeting card downloaded as PNG!';
+        copyToast.classList.remove('hidden');
+        setTimeout(function () {
+          downloadBtnLabel.textContent = 'Download Card';
+        }, 2500);
+      }
+
+      downloadCardBtn.addEventListener('click', function () {
+        if (!isDiyaLit) {
+          lightVirtualDiya();
+        }
+        downloadGreetingCardAsPNG();
+      });
+
       copyWishBtn.addEventListener('click', function () {
         copyTextToClipboard(buildShareText(), function () {
           copyBtnLabel.textContent = 'Copied!';
+          copyToast.textContent = '✨ Festive blessing copied to your clipboard! Ready to share with your loved ones.';
           copyToast.classList.remove('hidden');
           setTimeout(function () {
             copyBtnLabel.textContent = 'Copy Greeting';
