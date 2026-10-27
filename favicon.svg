@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#1A0B2E"/>
+  <circle cx="32" cy="32" r="28" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7"/>
+  <circle cx="32" cy="24" r="16" fill="url(#aura)"/>
+  <path d="M32 8C32 8 42 19 42 26.5C42 32 37.5 36.5 32 36.5C26.5 36.5 22 32 22 26.5C22 19 32 8 32 8Z" fill="url(#flame)"/>
+  <path d="M32 15C32 15 37 22 37 26.5C37 29.8 34.8 32.5 32 32.5C29.2 32.5 27 29.8 27 26.5C27 22 32 15 32 15Z" fill="#FFFDF8"/>
+  <path d="M11 37C11 37 21.5 41.5 32 41.5C42.5 41.5 53 37 53 37C50.5 48.5 42.5 55 32 55C21.5 55 13.5 48.5 11 37Z" fill="url(#bowl)" stroke="#FFD700" stroke-width="2"/>
+  <defs>
+    <radialGradient id="aura" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(32 24) scale(16)">
+      <stop stop-color="#FFD700" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#FF8F00" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flame" x1="32" y1="8" x2="32" y2="36.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD700"/>
+      <stop offset="0.6" stop-color="#FF8F00"/>
+      <stop offset="1" stop-color="#B71C1C"/>
+    </linearGradient>
+    <linearGradient id="bowl" x1="11" y1="37" x2="53" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B71C1C"/>
+      <stop offset="0.5" stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#7F0000"/>
+    </linearGradient>
+  </defs>
+</svg>
+

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="600" cy="240" r="280" fill="url(#glow)"/>
+  <rect x="28" y="28" width="1144" height="574" rx="20" stroke="url(#gold)" stroke-width="3"/>
+  <rect x="42" y="42" width="1116" height="546" rx="14" stroke="#D4AF37" stroke-opacity="0.4" stroke-width="1.5"/>
+
+  <!-- Decorative Mandala Rings -->
+  <circle cx="600" cy="220" r="145" stroke="#D4AF37" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <circle cx="600" cy="220" r="110" stroke="#FF8F00" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Glowing Clay Diya -->
+  <path d="M600 105C600 105 632 145 632 172C632 192 617.6 206 600 206C582.4 206 568 192 568 172C568 145 600 105 600 105Z" fill="url(#flame)"/>
+  <path d="M600 128C600 128 618 152 618 172C618 184 610 194 600 194C590 194 582 184 582 172C582 152 600 128 600 128Z" fill="#FFFDF8"/>
+  <path d="M515 212C525 256 558 278 600 278C642 278 675 256 685 212C658 224 629 228 600 228C571 228 542 224 515 212Z" fill="url(#bowl)" stroke="#FFD700" stroke-width="3"/>
+
+  <!-- Typography -->
+  <text x="600" y="345" text-anchor="middle" fill="#F5E08E" font-family="Georgia, serif" font-size="20" letter-spacing="6">SHUBH DEEPAVALI • FESTIVAL OF LIGHTS</text>
+  <text x="600" y="420" text-anchor="middle" fill="#FFFDF8" font-family="Georgia, serif" font-weight="bold" font-size="58">Illuminating Hearts &amp; Homes</text>
+  <text x="600" y="478" text-anchor="middle" fill="#E2D4BA" font-family="sans-serif" font-size="24">Celebrating the 5 Sacred Days of Diwali • Light Over Darkness</text>
+  <text x="600" y="545" text-anchor="middle" fill="#D4AF37" font-family="Georgia, serif" font-size="20">ॐ असतो मा सद्गमय । तमसो मा ज्योतिर्गमय ॥</text>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F051D"/>
+      <stop offset="0.5" stop-color="#1A0B2E"/>
+      <stop offset="1" stop-color="#110621"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 240) scale(280)">
+      <stop stop-color="#FF8F00" stop-opacity="0.32"/>
+      <stop offset="0.55" stop-color="#B71C1C" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#0F051D" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5E08E"/>
+      <stop offset="0.5" stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#FF8F00"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="600" y1="105" x2="600" y2="206" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD700"/>
+      <stop offset="0.6" stop-color="#FF8F00"/>
+      <stop offset="1" stop-color="#B71C1C"/>
+    </linearGradient>
+    <linearGradient id="bowl" x1="515" y1="212" x2="685" y2="278" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B71C1C"/>
+      <stop offset="0.5" stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#7F0000"/>
+    </linearGradient>
+  </defs>
+</svg>
+
