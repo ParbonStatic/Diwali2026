@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepavali | Festival of Lights — Five-Day Tribute</title>
+  <meta name="description" content="Illuminating Hearts & Homes | Deepavali. Celebrating the five-day festival of lights, the triumph of light over darkness, knowledge over ignorance, and good over evil." />
+
+  <!-- Google Fonts: Cinzel Decorative, Rozha One, Playfair Display, and Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#D4AF37',
+              light: '#F5E08E',
+              bright: '#FFD700',
+              dark: '#9E7B1C'
+            },
+            marigold: {
+              DEFAULT: '#FF8F00',
+              light: '#FFB300',
+              deep: '#E65100'
+            },
+            vermilion: {
+              DEFAULT: '#B71C1C',
+              light: '#D32F2F',
+              dark: '#7F0000'
+            },
+            midnight: {
+              DEFAULT: '#1A0B2E',
+              deep: '#0F051D',
+              card: '#24113E',
+              soft: '#311852'
+            },
+            ivory: {
+              DEFAULT: '#FFFDF8',
+              warm: '#F7EFE1',
+              muted: '#E2D4BA'
+            }
+          },
+          fontFamily: {
+            rozha: ['"Rozha One"', 'serif'],
+            cinzel: ['"Cinzel Decorative"', 'serif'],
+            playfair: ['"Playfair Display"', 'serif'],
+            sans: ['"Poppins"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-light: #F5E08E;
+      --marigold: #FF8F00;
+      --vermilion: #B71C1C;
+      --midnight: #1A0B2E;
+      --midnight-deep: #0F051D;
+      --ivory: #FFFDF8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--midnight-deep);
+      color: var(--ivory);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(183, 28, 28, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(255, 143, 0, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 65%, rgba(212, 175, 55, 0.08) 0%, transparent 55%),
+        linear-gradient(180deg, #0F051D 0%, #1A0B2E 50%, #110621 100%);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0F051D;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #D4AF37, #FF8F00);
+      border-radius: 5px;
+      border: 2px solid #0F051D;
+    }
+
+    /* Gold Foil Text & Borders */
+    .text-gold-foil {
+      background: linear-gradient(135deg, #FFF3B0 0%, #D4AF37 35%, #FF8F00 70%, #F5E08E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gold-foil-card {
+      background: linear-gradient(160deg, rgba(36, 17, 62, 0.88) 0%, rgba(20, 8, 38, 0.94) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.7), inset 0 0 25px rgba(212, 175, 55, 0.05);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .gold-foil-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(245, 224, 142, 0.6), rgba(212, 175, 55, 0.15), rgba(255, 143, 0, 0.5));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .gold-foil-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 215, 0, 0.65);
+      box-shadow: 0 20px 40px -12px rgba(255, 143, 0, 0.22), 0 0 25px rgba(212, 175, 55, 0.18);
+    }
+
+    /* Ornate Corner Accents */
+    .ornate-corner {
+      position: relative;
+    }
+    .ornate-corner::after {
+      content: '❖';
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      color: rgba(212, 175, 55, 0.45);
+      font-size: 0.9rem;
+      pointer-events: none;
+    }
+
+    /* Animated Diya Flame */
+    @keyframes flameFlicker {
+      0%, 100% {
+        transform: scale(1) rotate(-1deg) translateY(0);
+        filter: drop-shadow(0 0 14px #FF8F00) drop-shadow(0 0 28px #FFD700);
+      }
+      25% {
+        transform: scale(1.05, 0.96) rotate(1.5deg) translateY(-1px);
+        filter: drop-shadow(0 0 18px #FFB300) drop-shadow(0 0 36px #FF8F00);
+      }
+      50% {
+        transform: scale(0.97, 1.06) rotate(-1.5deg) translateY(-2px);
+        filter: drop-shadow(0 0 22px #FFD700) drop-shadow(0 0 42px #B71C1C);
+      }
+      75% {
+        transform: scale(1.03, 0.98) rotate(1deg) translateY(0px);
+        filter: drop-shadow(0 0 16px #FF8F00) drop-shadow(0 0 32px #FFD700);
+      }
+    }
+
+    @keyframes haloPulse {
+      0%, 100% {
+        opacity: 0.55;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.9;
+        transform: scale(1.14);
+      }
+    }
+
+    @keyframes slowSpin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes reverseSlowSpin {
+      from {
+        transform: rotate(360deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    .diya-flame {
+      transform-origin: 50% 85%;
+      animation: flameFlicker 2.6s infinite ease-in-out;
+    }
+
+    .diya-halo {
+      transform-origin: center;
+      animation: haloPulse 3.2s infinite ease-in-out;
+    }
+
+    .rangoli-spin {
+      animation: slowSpin 70s linear infinite;
+    }
+
+    .rangoli-spin-reverse {
+      animation: reverseSlowSpin 50s linear infinite;
+    }
+
+    /* Rangoli Pattern Divider */
+    .rangoli-divider {
+      height: 28px;
+      width: 100%;
+      background-image: radial-gradient(circle, #D4AF37 2px, transparent 2.5px),
+                        radial-gradient(circle, #FF8F00 1.5px, transparent 2px);
+      background-size: 32px 28px;
+      background-position: 0 0, 16px 0;
+      opacity: 0.45;
+    }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Interactive Diya off/on state */
+    .virtual-flame-group {
+      opacity: 0;
+      transform: scale(0.2) translateY(20px);
+      transform-origin: 100px 95px;
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .virtual-flame-group.lit {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Active Stepper Tab */
+    .day-tab.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(255, 143, 0, 0.25), rgba(183, 28, 28, 0.35));
+      border-color: #FFD700;
+      box-shadow: 0 0 25px rgba(255, 143, 0, 0.35);
+    }
+  </style>
+</head>
+<body class="selection:bg-marigold selection:text-midnight-deep">
+
+  <!-- Ambient Floating Particles Canvas -->
+  <canvas id="particles-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  <!-- Sticky Navigation Header -->
+  <header id="navbar" class="sticky top-0 z-50 transition-all duration-300 bg-midnight-deep/85 backdrop-blur-md border-b border-gold/25">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Festive Logo / Title -->
+        <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+          <div class="relative w-11 h-11 flex items-center justify-center rounded-full bg-gradient-to-br from-vermilion via-marigold to-gold p-0.5 shadow-lg shadow-marigold/25">
+            <div class="w-full h-full bg-midnight-deep rounded-full flex items-center justify-center">
+              <!-- Mini Glowing Diya SVG -->
+              <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path class="diya-flame" d="M32 8C32 8 41 19 41 26C41 31 37 35 32 35C27 35 23 31 23 26C23 19 32 8 32 8Z" fill="url(#navFlame)" />
+                <path d="M32 15C32 15 36.5 22 36.5 26.5C36.5 29.5 34.5 32 32 32C29.5 32 27.5 29.5 27.5 26.5C27.5 22 32 15 32 15Z" fill="#FFFDF8" />
+                <path d="M12 36C12 36 22 40 32 40C42 40 52 36 52 36C50 47 42 54 32 54C22 54 14 47 12 36Z" fill="url(#navBowl)" stroke="#FFD700" stroke-width="1.5" />
+                <defs>
+                  <linearGradient id="navFlame" x1="32" y1="8" x2="32" y2="35" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFD700" />
+                    <stop offset="0.6" stop-color="#FF8F00" />
+                    <stop offset="1" stop-color="#B71C1C" />
+                  </linearGradient>
+                  <linearGradient id="navBowl" x1="12" y1="36" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#B71C1C" />
+                    <stop offset="0.5" stop-color="#D4AF37" />
+                    <stop offset="1" stop-color="#7F0000" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <span class="block font-rozha text-xl sm:text-2xl tracking-wide text-gold-foil leading-none">
+              Deepavali
+            </span>
+            <span class="block text-[11px] uppercase tracking-[0.22em] text-ivory-muted font-medium mt-0.5">
+              Festival of Lights
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav aria-label="Primary Navigation" class="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          <a href="#home" class="nav-link px-3.5 py-2 rounded-full text-sm font-medium text-ivory/90 hover:text-gold-light hover:bg-gold/10 transition">Home</a>
+          <a href="#significance" class="nav-link px-3.5 py-2 rounded-full text-sm font-medium text-ivory/90 hover:text-gold-light hover:bg-gold/10 transition">Significance</a>
+          <a href="#five-days" class="nav-link px-3.5 py-2 rounded-full text-sm font-medium text-ivory/90 hover:text-gold-light hover:bg-gold/10 transition">The 5 Days</a>
+          <a href="#rituals" class="nav-link px-3.5 py-2 rounded-full text-sm font-medium text-ivory/90 hover:text-gold-light hover:bg-gold/10 transition">Rituals &amp; Traditions</a>
+          <a href="#virtual-diya" class="nav-link px-3.5 py-2 rounded-full text-sm font-medium text-ivory/90 hover:text-gold-light hover:bg-gold/10 transition">Virtual Diya</a>
+          <a href="#festive-wishes" class="nav-link px-3.5 py-2 rounded-full text-sm font-medium text-ivory/90 hover:text-gold-light hover:bg-gold/10 transition">Festive Wishes</a>
+          <a href="#virtual-diya" class="ml-2 inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-midnight-deep bg-gradient-to-r from-gold-light via-gold to-marigold hover:brightness-110 shadow-md shadow-marigold/20 transition">
+            <span>🪔 Light a Diya</span>
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center lg:hidden">
+          <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu" class="p-2.5 rounded-xl border border-gold/40 text-gold-light hover:bg-gold/15 focus:outline-none">
+            <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-midnight-deep/95 border-b border-gold/30 px-4 pt-3 pb-6 space-y-2 backdrop-blur-xl">
+      <a href="#home" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-ivory hover:bg-gold/15 hover:text-gold-light">Home</a>
+      <a href="#significance" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-ivory hover:bg-gold/15 hover:text-gold-light">Significance</a>
+      <a href="#five-days" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-ivory hover:bg-gold/15 hover:text-gold-light">The 5 Days</a>
+      <a href="#rituals" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-ivory hover:bg-gold/15 hover:text-gold-light">Rituals &amp; Traditions</a>
+      <a href="#virtual-diya" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-ivory hover:bg-gold/15 hover:text-gold-light">Virtual Diya</a>
+      <a href="#festive-wishes" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium text-ivory hover:bg-gold/15 hover:text-gold-light">Festive Wishes</a>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <!-- ==========================================
+         1 & 2. HERO SECTION
+    =========================================== -->
+    <section id="home" class="relative min-h-[90vh] flex items-center justify-center py-16 lg:py-24 overflow-hidden">
+      <!-- Background Decorative Rotating Rangoli Mandala -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-15 overflow-hidden" aria-hidden="true">
+        <svg class="w-[680px] h-[680px] sm:w-[860px] sm:h-[860px] rangoli-spin" viewBox="0 0 400 400" fill="none">
+          <circle cx="200" cy="200" r="190" stroke="#D4AF37" stroke-width="1" stroke-dasharray="6 6" />
+          <circle cx="200" cy="200" r="160" stroke="#FF8F00" stroke-width="1.5" />
+          <circle cx="200" cy="200" r="125" stroke="#D4AF37" stroke-width="1" />
+          <circle cx="200" cy="200" r="85" stroke="#B71C1C" stroke-width="2" />
+          <g stroke="#D4AF37" stroke-width="1.2">
+            <ellipse cx="200" cy="200" rx="155" ry="45" />
+            <ellipse cx="200" cy="200" rx="155" ry="45" transform="rotate(30 200 200)" />
+            <ellipse cx="200" cy="200" rx="155" ry="45" transform="rotate(60 200 200)" />
+            <ellipse cx="200" cy="200" rx="155" ry="45" transform="rotate(90 200 200)" />
+            <ellipse cx="200" cy="200" rx="155" ry="45" transform="rotate(120 200 200)" />
+            <ellipse cx="200" cy="200" rx="155" ry="45" transform="rotate(150 200 200)" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- Festive Toran (Marigold Garland) Top Accent -->
+      <div class="absolute top-0 inset-x-0 flex justify-around pointer-events-none opacity-80 overflow-hidden" aria-hidden="true">
+        <div class="w-full h-3 bg-gradient-to-r from-vermilion via-gold to-marigold opacity-60"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Hero Left Column: Text & CTAs -->
+          <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-vermilion/25 border border-gold/40 text-gold-light text-xs sm:text-sm font-medium tracking-widest uppercase shadow-inner">
+              <span class="w-2 h-2 rounded-full bg-marigold animate-ping"></span>
+              <span>Shubh Deepavali • Auspicious Five-Day Tribute</span>
+            </div>
+
+            <h1 class="font-rozha text-4xl sm:text-6xl xl:text-7xl leading-[1.12] tracking-tight">
+              <span class="text-ivory block">Illuminating Hearts &amp; Homes</span>
+              <span class="text-gold-foil block mt-1">| Deepavali</span>
+            </h1>
+
+            <p class="text-base sm:text-lg lg:text-xl text-ivory-warm/90 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+              Celebrating the triumph of light over darkness, knowledge over ignorance, and good over evil. Step into the timeless radiance of India’s most luminous five-day festival of joy, gratitude, and sacred renewal.
+            </p>
+
+            <!-- Elegant CTAs -->
+            <div class="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="#five-days" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-semibold text-midnight-deep bg-gradient-to-r from-gold-light via-gold to-marigold hover:brightness-110 shadow-xl shadow-marigold/25 transition-all transform hover:-translate-y-0.5">
+                <span>Explore the 5 Days</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+              <a href="#virtual-diya" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-semibold text-gold-light border-2 border-gold/60 bg-midnight-card/70 hover:bg-gold/15 hover:border-gold-bright transition-all transform hover:-translate-y-0.5">
+                <span>🪔 Light a Virtual Diya</span>
+              </a>
+            </div>
+
+            <!-- Festive Highlights Strip -->
+            <div class="pt-6 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 border-t border-gold/20">
+              <div>
+                <p class="font-rozha text-2xl sm:text-3xl text-gold-light">5 Sacred Days</p>
+                <p class="text-xs text-ivory-muted">Dhanteras to Bhai Dooj</p>
+              </div>
+              <div>
+                <p class="font-rozha text-2xl sm:text-3xl text-marigold-light" id="hero-diya-count">1,08,421+</p>
+                <p class="text-xs text-ivory-muted">Diyas of Hope Lit</p>
+              </div>
+              <div>
+                <p class="font-rozha text-2xl sm:text-3xl text-gold-light">Eternal Light</p>
+                <p class="text-xs text-ivory-muted">Dharma &amp; Prosperity</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right Column: Centerpiece Royal Glowing Diya & Mandala -->
+          <div class="lg:col-span-5 flex items-center justify-center">
+            <div class="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center">
+              <!-- Outer Glowing Aura -->
+              <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-vermilion/30 via-marigold/30 to-gold/25 blur-3xl diya-halo"></div>
+
+              <!-- Intricate Ring Border -->
+              <svg class="absolute inset-0 w-full h-full rangoli-spin-reverse opacity-70" viewBox="0 0 300 300" fill="none">
+                <circle cx="150" cy="150" r="142" stroke="url(#heroRingGrad)" stroke-width="1.5" stroke-dasharray="4 8" />
+                <circle cx="150" cy="150" r="126" stroke="#D4AF37" stroke-width="1" stroke-opacity="0.5" />
+                <!-- 8 Lotus Petals -->
+                <g stroke="#D4AF37" stroke-width="1.2" fill="rgba(183,28,28,0.18)">
+                  <path d="M150 10 C165 35 165 55 150 75 C135 55 135 35 150 10 Z" />
+                  <path d="M150 10 C165 35 165 55 150 75 C135 55 135 35 150 10 Z" transform="rotate(45 150 150)" />
+                  <path d="M150 10 C165 35 165 55 150 75 C135 55 135 35 150 10 Z" transform="rotate(90 150 150)" />
+                  <path d="M150 10 C165 35 165 55 150 75 C135 55 135 35 150 10 Z" transform="rotate(135 150 150)" />
+                  <path d="M150 10 C165 35 165 55 150 75 C135 55 135 35 150 10 Z" transform="rotate(180 150 150)" />
+                  <path d="M150 10 C165 35 165 55 150 75 C135 55 135 35 150 10 Z" transform="rotate(225 150 150)" />
+                  <path d="M150 10 C165 35 165 55 150 75 C135 55 135 35 150 10 Z" transform="rotate(270 150 150)" />
+                  <path d="M150 10 C165 35 165 55 150 75 C135 55 135 35 150 10 Z" transform="rotate(315 150 150)" />
+                </g>
+                <defs>
+                  <linearGradient id="heroRingGrad" x1="0" y1="0" x2="300" y2="300" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFD700" />
+                    <stop offset="0.5" stop-color="#FF8F00" />
+                    <stop offset="1" stop-color="#B71C1C" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              <!-- Centerpiece Ornate Clay Diya SVG -->
+              <svg class="relative z-10 w-56 h-56 sm:w-72 sm:h-72 drop-shadow-[0_18px_28px_rgba(0,0,0,0.85)]" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Glowing traditional Indian clay diya lamp">
+                <!-- Radiant Halo Behind Flame -->
+                <circle class="diya-halo" cx="120" cy="78" r="52" fill="url(#flameAura)" />
+                <!-- Outer Flame -->
+                <g class="diya-flame">
+                  <path d="M120 22C120 22 152 60 152 88C152 108 137.6 122 120 122C102.4 122 88 108 88 88C88 60 120 22 120 22Z" fill="url(#outerFlameGrad)" />
+                  <path d="M120 42C120 42 140 68 140 88C140 101 131 112 120 112C109 112 100 101 100 88C100 68 120 42 120 42Z" fill="url(#innerFlameGrad)" />
+                  <ellipse cx="120" cy="98" rx="9" ry="14" fill="#FFFDF8" />
+                </g>
+
+                <!-- Diya Base Rim & Decorative Arch -->
+                <ellipse cx="120" cy="126" rx="76" ry="16" fill="#5A0E0E" stroke="#D4AF37" stroke-width="2.5" />
+                <ellipse cx="120" cy="126" rx="66" ry="11" fill="url(#oilPoolGrad)" />
+
+                <!-- Diya Earthen Bowl Body -->
+                <path d="M44 126C52 174 84 196 120 196C156 196 188 174 196 126C172 138 146 142 120 142C94 142 68 138 44 126Z" fill="url(#clayBowlGrad)" stroke="#FFD700" stroke-width="2.5" />
+
+                <!-- Intricate Gold Carvings on Diya Bowl -->
+                <path d="M62 146C80 162 100 168 120 168C140 168 160 162 178 146" stroke="#F5E08E" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round" />
+                <circle cx="120" cy="168" r="6" fill="#FFD700" />
+                <circle cx="95" cy="164" r="4" fill="#FF8F00" />
+                <circle cx="145" cy="164" r="4" fill="#FF8F00" />
+
+                <!-- Diya Pedestal Foot -->
+                <path d="M90 194L82 210H158L150 194C130 198 110 198 90 194Z" fill="url(#pedestalGrad)" stroke="#D4AF37" stroke-width="2" />
+
+                <defs>
+                  <radialGradient id="flameAura" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(120 78) scale(52)">
+                    <stop stop-color="#FFD700" stop-opacity="0.65" />
+                    <stop offset="0.55" stop-color="#FF8F00" stop-opacity="0.3" />
+                    <stop offset="1" stop-color="#FF8F00" stop-opacity="0" />
+                  </radialGradient>
+                  <linearGradient id="outerFlameGrad" x1="120" y1="22" x2="120" y2="122" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFF3B0" />
+                    <stop offset="0.45" stop-color="#FFB300" />
+                    <stop offset="0.85" stop-color="#E65100" />
+                    <stop offset="1" stop-color="#B71C1C" />
+                  </linearGradient>
+                  <linearGradient id="innerFlameGrad" x1="120" y1="42" x2="120" y2="112" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFFDF8" />
+                    <stop offset="0.6" stop-color="#FFD700" />
+                    <stop offset="1" stop-color="#FF8F00" />
+                  </linearGradient>
+                  <linearGradient id="oilPoolGrad" x1="54" y1="126" x2="186" y2="126" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#7F0000" />
+                    <stop offset="0.5" stop-color="#FF8F00" />
+                    <stop offset="1" stop-color="#7F0000" />
+                  </linearGradient>
+                  <linearGradient id="clayBowlGrad" x1="44" y1="126" x2="196" y2="196" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#B71C1C" />
+                    <stop offset="0.5" stop-color="#8E1616" />
+                    <stop offset="1" stop-color="#4A0707" />
+                  </linearGradient>
+                  <linearGradient id="pedestalGrad" x1="82" y1="194" x2="158" y2="210" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#9E7B1C" />
+                    <stop offset="0.5" stop-color="#FFD700" />
+                    <stop offset="1" stop-color="#9E7B1C" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="rangoli-divider" aria-hidden="true"></div>
+
+    <!-- ==========================================
+         3. SPIRITUAL SIGNIFICANCE & ORIGIN
+    =========================================== -->
+    <section id="significance" class="py-20 lg:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+          <span class="text-xs sm:text-sm uppercase tracking-[0.25em] text-marigold-light font-semibold block mb-2">
+            Sacred Heritage &amp; Cosmic Lore
+          </span>
+          <h2 class="font-rozha text-3xl sm:text-5xl text-gold-foil">
+            Spiritual Significance &amp; Origin
+          </h2>
+          <div class="w-28 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
+          <p class="text-ivory-warm/85 text-base sm:text-lg leading-relaxed">
+            Derived from the Sanskrit word <em class="text-gold-light font-playfair">Deepavali</em> — meaning a "row of lighted lamps" — the festival transcends historical epochs to celebrate the eternal victory of righteousness (<span class="text-gold-light">Dharma</span>) and spiritual awakening.
+          </p>
+        </div>
+
+        <!-- 3 Storytelling Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card 1: Return of Lord Rama -->
+          <article class="gold-foil-card ornate-corner rounded-2xl p-8 flex flex-col justify-between reveal">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-vermilion to-marigold/80 border border-gold flex items-center justify-center mb-6 shadow-lg shadow-vermilion/30">
+                <!-- Bow & Crown Icon -->
+                <svg class="w-8 h-8 text-ivory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 20c6-2 14-10 16-16M4 20l4-12 8 8-12 4zm11-11l5-5" />
+                </svg>
+              </div>
+              <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold">Treta Yuga • The Ramayana</span>
+              <h3 class="font-rozha text-2xl text-ivory mt-1 mb-3">
+                The Joyous Return of Lord Rama to Ayodhya
+              </h3>
+              <p class="text-ivory-warm/80 text-sm sm:text-base leading-relaxed">
+                After fourteen years of exile and the vanquishing of the demon king Ravana, Lord Rama, Mata Sita, and Lakshmana returned to their sacred capital of Ayodhya on the moonless night of <em class="text-gold-light">Kartika Amavasya</em>. Overjoyed citizens illuminated every path, balcony, and threshold with thousands of earthen clay <em class="text-gold-light">diyas</em> to welcome their beloved king home.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gold/20 flex items-center justify-between text-xs text-gold-light">
+              <span>Symbolism: Triumph of Dharma</span>
+              <span>Ayodhya Illumination</span>
+            </div>
+          </article>
+
+          <!-- Card 2: Emergence of Goddess Lakshmi -->
+          <article class="gold-foil-card ornate-corner rounded-2xl p-8 flex flex-col justify-between reveal">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-marigold to-gold border border-gold-light flex items-center justify-center mb-6 shadow-lg shadow-marigold/30">
+                <!-- Sacred Lotus Icon -->
+                <svg class="w-8 h-8 text-midnight-deep" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3C9.5 6.5 8 9.5 8 12.5C8 14.7 9.8 16.5 12 16.5C14.2 16.5 16 14.7 16 12.5C16 9.5 14.5 6.5 12 3ZM5 8C4.5 11.5 5.5 14.5 8 16.2C6.8 14.5 6.5 11.8 7.5 9.5C6.5 9 5.7 8.5 5 8ZM19 8C18.3 8.5 17.5 9 16.5 9.5C17.5 11.8 17.2 14.5 16 16.2C18.5 14.5 19.5 11.5 19 8ZM4 17C6.5 19.5 9.2 20.5 12 20.5C14.8 20.5 17.5 19.5 20 17C17 17.8 14.5 18 12 18C9.5 18 7 17.8 4 17Z" />
+                </svg>
+              </div>
+              <span class="text-xs uppercase tracking-widest text-gold-light font-semibold">Samudra Manthan • Cosmic Ocean</span>
+              <h3 class="font-rozha text-2xl text-ivory mt-1 mb-3">
+                The Emergence of Goddess Lakshmi
+              </h3>
+              <p class="text-ivory-warm/80 text-sm sm:text-base leading-relaxed">
+                According to ancient Puranic scriptures, during the great churning of the cosmic ocean of milk (<em class="text-gold-light">Kshira Sagara</em>) by the Devas and Asuras, Goddess Lakshmi — the divine embodiment of auspice, abundance, purity, and spiritual prosperity — emerged seated upon a radiant thousand-petaled lotus, blessing the universe with harmony and grace.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gold/20 flex items-center justify-between text-xs text-gold-light">
+              <span>Symbolism: Grace &amp; Abundance</span>
+              <span>Lakshmi Pujan</span>
+            </div>
+          </article>
+
+          <!-- Card 3: Universal Symbolism of Clay Diyas -->
+          <article class="gold-foil-card ornate-corner rounded-2xl p-8 flex flex-col justify-between reveal">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-vermilion via-marigold to-gold border border-gold flex items-center justify-center mb-6 shadow-lg shadow-gold/25">
+                <!-- Radiant Sun/Flame Icon -->
+                <svg class="w-8 h-8 text-ivory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                </svg>
+              </div>
+              <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold">Atma Jyoti • Inner Awakening</span>
+              <h3 class="font-rozha text-2xl text-ivory mt-1 mb-3">
+                Dispelling Inner &amp; Outer Darkness
+              </h3>
+              <p class="text-ivory-warm/80 text-sm sm:text-base leading-relaxed">
+                In spiritual philosophy, the humble earthen clay <em class="text-gold-light">diya</em> represents the mortal human body, the oil within symbolizes our accumulated karmic tendencies and ego, and the cotton wick stands for the individual self. Lighting the flame signifies igniting supreme wisdom (<em class="text-gold-light">Jnana</em>) to dissolve ignorance, ego, and despair.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gold/20 flex items-center justify-between text-xs text-gold-light">
+              <span>Symbolism: Self-Realization</span>
+              <span>Wisdom Over Ignorance</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="rangoli-divider" aria-hidden="true"></div>
+
+    <!-- ==========================================
+         4. THE 5 DAYS OF DIWALI (Interactive Timeline / Stepper Cards)
+    =========================================== -->
+    <section id="five-days" class="py-20 lg:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Heading -->
+        <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+          <span class="text-xs sm:text-sm uppercase tracking-[0.25em] text-marigold-light font-semibold block mb-2">
+            Five Auspicious Chapters
+          </span>
+          <h2 class="font-rozha text-3xl sm:text-5xl text-gold-foil">
+            The 5 Sacred Days of Deepavali
+          </h2>
+          <div class="w-28 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
+          <p class="text-ivory-warm/85 text-base sm:text-lg">
+            Each day of the Deepavali festival carries its own sacred legend, spiritual observance, and joyful tradition. Select a day below or explore the full five-day progression.
+          </p>
+        </div>
+
+        <!-- Interactive Stepper Navigation Tabs -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-10 reveal" role="tablist" aria-label="Five Days of Diwali Stepper">
+          <button type="button" role="tab" aria-selected="true" data-day="1" class="day-tab active rounded-2xl p-4 text-left border border-gold/35 bg-midnight-card/70 hover:border-gold transition-all focus:outline-none">
+            <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold block">Day 01</span>
+            <span class="font-rozha text-lg sm:text-xl text-ivory block mt-0.5">Dhanteras</span>
+            <span class="text-xs text-ivory-muted block mt-1">Health &amp; Wealth</span>
+          </button>
+
+          <button type="button" role="tab" aria-selected="false" data-day="2" class="day-tab rounded-2xl p-4 text-left border border-gold/35 bg-midnight-card/70 hover:border-gold transition-all focus:outline-none">
+            <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold block">Day 02</span>
+            <span class="font-rozha text-lg sm:text-xl text-ivory block mt-0.5">Choti Diwali</span>
+            <span class="text-xs text-ivory-muted block mt-1">Naraka Chaturdashi</span>
+          </button>
+
+          <button type="button" role="tab" aria-selected="false" data-day="3" class="day-tab rounded-2xl p-4 text-left border border-gold/35 bg-midnight-card/70 hover:border-gold transition-all focus:outline-none">
+            <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold block">Day 03</span>
+            <span class="font-rozha text-lg sm:text-xl text-ivory block mt-0.5">Lakshmi Puja</span>
+            <span class="text-xs text-ivory-muted block mt-1">Main Deepavali</span>
+          </button>
+
+          <button type="button" role="tab" aria-selected="false" data-day="4" class="day-tab rounded-2xl p-4 text-left border border-gold/35 bg-midnight-card/70 hover:border-gold transition-all focus:outline-none">
+            <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold block">Day 04</span>
+            <span class="font-rozha text-lg sm:text-xl text-ivory block mt-0.5">Govardhan Puja</span>
+            <span class="text-xs text-ivory-muted block mt-1">Annakut &amp; New Year</span>
+          </button>
+
+          <button type="button" role="tab" aria-selected="false" data-day="5" class="day-tab col-span-2 sm:col-span-1 rounded-2xl p-4 text-left border border-gold/35 bg-midnight-card/70 hover:border-gold transition-all focus:outline-none">
+            <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold block">Day 05</span>
+            <span class="font-rozha text-lg sm:text-xl text-ivory block mt-0.5">Bhai Dooj</span>
+            <span class="text-xs text-ivory-muted block mt-1">Yama Dwitiya</span>
+          </button>
+        </div>
+
+        <!-- Interactive Spotlight Card for Selected Day -->
+        <div id="day-spotlight" class="gold-foil-card rounded-3xl p-6 sm:p-10 lg:p-12 mb-12 reveal">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+              <div class="flex flex-wrap items-center gap-3">
+                <span id="spotlight-badge" class="px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-widest bg-vermilion text-ivory border border-gold/50">
+                  Day 1 • Trayodashi
+                </span>
+                <span id="spotlight-tithi" class="text-sm text-gold-light font-medium">
+                  Kartika Krishna Trayodashi
+                </span>
+              </div>
+
+              <h3 id="spotlight-title" class="font-rozha text-3xl sm:text-4xl text-gold-foil">
+                Day 1: Dhanteras (Dhanatrayodashi)
+              </h3>
+
+              <p id="spotlight-desc" class="text-ivory-warm/90 text-base sm:text-lg leading-relaxed">
+                Marking the auspicious commencement of the five-day festival, Dhanteras honors Lord Dhanvantari — the divine physician of the gods and promulgator of Ayurveda — alongside Goddess Lakshmi and Lord Kubera. Families thoroughly cleanse and decorate their homes, light thirteen earthen lamps at dusk (<em class="text-gold-light">Yama Deepam</em>), and purchase gold, silver, or new brass and copper utensils as tokens of enduring health and prosperity.
+              </p>
+
+              <div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="p-4 rounded-xl bg-midnight-deep/60 border border-gold/25">
+                  <span class="text-xs uppercase tracking-wider text-marigold-light block">Deities Revered</span>
+                  <span id="spotlight-deity" class="font-medium text-ivory text-sm sm:text-base mt-1 block">Lord Dhanvantari, Goddess Lakshmi &amp; Kubera</span>
+                </div>
+                <div class="p-4 rounded-xl bg-midnight-deep/60 border border-gold/25">
+                  <span class="text-xs uppercase tracking-wider text-marigold-light block">Key Customs</span>
+                  <span id="spotlight-custom" class="font-medium text-ivory text-sm sm:text-base mt-1 block">Buying Gold/Utensils &amp; Lighting Yama Deepam</span>
+                </div>
+                <div class="p-4 rounded-xl bg-midnight-deep/60 border border-gold/25">
+                  <span class="text-xs uppercase tracking-wider text-marigold-light block">Core Blessing</span>
+                  <span id="spotlight-blessing" class="font-medium text-ivory text-sm sm:text-base mt-1 block">Holistic Health, Longevity &amp; Fortune</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Spotlight Day Navigation & Emblem -->
+            <div class="lg:col-span-4 flex flex-col items-center justify-center text-center p-6 rounded-2xl bg-midnight-deep/55 border border-gold/30">
+              <div id="spotlight-icon" class="w-20 h-20 rounded-full bg-gradient-to-br from-gold via-marigold to-vermilion p-0.5 flex items-center justify-center mb-4 shadow-lg shadow-marigold/30">
+                <div class="w-full h-full rounded-full bg-midnight-deep flex items-center justify-center text-3xl">
+                  🏺
+                </div>
+              </div>
+              <p id="spotlight-mantra" class="font-playfair italic text-gold-light text-base mb-5">
+                "Om Kleem श्रीं Brzee — Invoking healing nectar and auspicious beginnings."
+              </p>
+              <div class="flex items-center gap-3">
+                <button id="prev-day-btn" type="button" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider border border-gold/40 text-gold-light hover:bg-gold/15 transition">
+                  ← Prev Day
+                </button>
+                <button id="next-day-btn" type="button" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-gold text-midnight-deep hover:brightness-110 transition">
+                  Next Day →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Complete 5-Day Overview Cards Grid (Always accessible for quick reading & comparison) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 reveal">
+          <!-- Day 1 Card -->
+          <div data-day-card="1" class="gold-foil-card rounded-2xl p-5 cursor-pointer ring-2 ring-gold">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-gold/20 text-gold-light">Day 1</span>
+              <span class="text-lg" aria-hidden="true">🏺</span>
+            </div>
+            <h4 class="font-rozha text-xl text-ivory mb-1.5">Dhanteras</h4>
+            <p class="text-xs text-ivory-warm/80 leading-relaxed">
+              Worshipping Lord Dhanvantari, buying gold and brass utensils, lighting Yama Deepam, and seeking vibrant health and wealth.
+            </p>
+          </div>
+
+          <!-- Day 2 Card -->
+          <div data-day-card="2" class="gold-foil-card rounded-2xl p-5 cursor-pointer">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-gold/20 text-gold-light">Day 2</span>
+              <span class="text-lg" aria-hidden="true">🪔</span>
+            </div>
+            <h4 class="font-rozha text-xl text-ivory mb-1.5">Naraka Chaturdashi / Choti Diwali</h4>
+            <p class="text-xs text-ivory-warm/80 leading-relaxed">
+              Celebrating the victory of Lord Krishna and Satyabhama over Narakasura, observed with early morning aromatic oil baths (<em class="text-gold-light">Abhyanga Snan</em>) and cleansing rituals.
+            </p>
+          </div>
+
+          <!-- Day 3 Card -->
+          <div data-day-card="3" class="gold-foil-card rounded-2xl p-5 cursor-pointer">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-vermilion/80 text-ivory">Day 3 • Peak</span>
+              <span class="text-lg" aria-hidden="true">🪷</span>
+            </div>
+            <h4 class="font-rozha text-xl text-ivory mb-1.5">Lakshmi Puja / Deepavali</h4>
+            <p class="text-xs text-ivory-warm/80 leading-relaxed">
+              Welcoming Goddess Lakshmi and Lord Ganesha into purified homes, lighting rows of clay diyas, sparkling fireworks, and sharing festive sweets.
+            </p>
+          </div>
+
+          <!-- Day 4 Card -->
+          <div data-day-card="4" class="gold-foil-card rounded-2xl p-5 cursor-pointer">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-gold/20 text-gold-light">Day 4</span>
+              <span class="text-lg" aria-hidden="true">⛰️</span>
+            </div>
+            <h4 class="font-rozha text-xl text-ivory mb-1.5">Govardhan Puja / Annakut</h4>
+            <p class="text-xs text-ivory-warm/80 leading-relaxed">
+              Honoring Lord Krishna lifting Mount Govardhan to shelter villagers, offering grand mountains of vegetarian delicacies (<em class="text-gold-light">Annakut</em>), and celebrating Gujarati New Year (<em class="text-gold-light">Bestu Varas</em>).
+            </p>
+          </div>
+
+          <!-- Day 5 Card -->
+          <div data-day-card="5" class="gold-foil-card rounded-2xl p-5 cursor-pointer">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-gold/20 text-gold-light">Day 5</span>
+              <span class="text-lg" aria-hidden="true">🌺</span>
+            </div>
+            <h4 class="font-rozha text-xl text-ivory mb-1.5">Bhai Dooj / Yama Dwitiya</h4>
+            <p class="text-xs text-ivory-warm/80 leading-relaxed">
+              Celebrating the eternal bond of love, devotion, and protection between brothers and sisters with ceremonial <em class="text-gold-light">Tilak</em>, <em class="text-gold-light">Aarti</em>, and heartfelt gifts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="rangoli-divider" aria-hidden="true"></div>
+
+    <!-- ==========================================
+         5. RITUALS & CELEBRATIONS (Grid Layout)
+    =========================================== -->
+    <section id="rituals" class="py-20 lg:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+          <span class="text-xs sm:text-sm uppercase tracking-[0.25em] text-marigold-light font-semibold block mb-2">
+            Living Cultural Tapestry
+          </span>
+          <h2 class="font-rozha text-3xl sm:text-5xl text-gold-foil">
+            Timeless Rituals &amp; Celebrations
+          </h2>
+          <div class="w-28 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
+          <p class="text-ivory-warm/85 text-base sm:text-lg">
+            From hand-molded terracotta lamps to geometric threshold art and heirloom confections, every Diwali custom awakens the senses and binds communities in warmth.
+          </p>
+        </div>
+
+        <!-- 4-Card Responsive Rituals Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Ritual 1: Lighting of Earthen Diyas (Pradips) -->
+          <div class="gold-foil-card ornate-corner rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start reveal">
+            <div class="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-marigold via-vermilion to-gold p-0.5 shadow-lg shadow-marigold/20">
+              <div class="w-full h-full bg-midnight-deep rounded-2xl flex items-center justify-center">
+                <svg class="w-9 h-9 text-gold-light" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C12 2 15 6 15 8.5C15 10.4 13.7 12 12 12C10.3 12 9 10.4 9 8.5C9 6 12 2 12 2ZM4 14C6.5 15.3 9.2 16 12 16C14.8 16 17.5 15.3 20 14C19 18.5 15.8 21 12 21C8.2 21 5 18.5 4 14Z" />
+                </svg>
+              </div>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold">Sacred Illumination</span>
+              <h3 class="font-rozha text-2xl text-ivory mt-1 mb-2">
+                Lighting of Earthen Diyas (Pradips)
+              </h3>
+              <p class="text-ivory-warm/80 text-sm sm:text-base leading-relaxed">
+                Handcrafted by local potters, unglazed terracotta <em class="text-gold-light">diyas</em> and <em class="text-gold-light">pradips</em> are filled with pure mustard oil or cow’s <em class="text-gold-light">ghee</em>. Placed along courtyards, windowsills, tulsi altars, and temple steps, they illuminate every corner of the threshold to guide prosperity home.
+              </p>
+            </div>
+          </div>
+
+          <!-- Ritual 2: Intricate Rangoli -->
+          <div class="gold-foil-card ornate-corner rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start reveal">
+            <div class="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-gold via-marigold to-vermilion p-0.5 shadow-lg shadow-gold/20">
+              <div class="w-full h-full bg-midnight-deep rounded-2xl flex items-center justify-center">
+                <svg class="w-9 h-9 text-marigold-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M12 2C14.5 5 14.5 9 12 12C9.5 9 9.5 5 12 2Z" />
+                  <path d="M12 22C14.5 19 14.5 15 12 12C9.5 15 9.5 19 12 22Z" />
+                  <path d="M2 12C5 9.5 9 9.5 12 12C9 14.5 5 14.5 2 12Z" />
+                  <path d="M22 12C19 9.5 15 9.5 12 12C15 14.5 19 14.5 22 12Z" />
+                </svg>
+              </div>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold">Sacred Geometry</span>
+              <h3 class="font-rozha text-2xl text-ivory mt-1 mb-2">
+                Intricate Rangoli &amp; Alpona Art
+              </h3>
+              <p class="text-ivory-warm/80 text-sm sm:text-base leading-relaxed">
+                Welcoming positive cosmic energy at the main entrance with vibrant geometric floor art crafted from colored rice flour, vermilion (<em class="text-gold-light">kumkum</em>), turmeric, and fragrant marigold and rose petals — adorned with sacred lotus motifs and <em class="text-gold-light">Lakshmi Charan</em> footprints.
+              </p>
+            </div>
+          </div>
+
+          <!-- Ritual 3: Mithai & Festive Feasts -->
+          <div class="gold-foil-card ornate-corner rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start reveal">
+            <div class="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-vermilion via-gold to-marigold p-0.5 shadow-lg shadow-vermilion/20">
+              <div class="w-full h-full bg-midnight-deep rounded-2xl flex items-center justify-center">
+                <svg class="w-9 h-9 text-gold-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 7-7 7-7-7 7-7z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 17l5 4H7l5-4z" />
+                </svg>
+              </div>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold">Sweet Hospitality</span>
+              <h3 class="font-rozha text-2xl text-ivory mt-1 mb-2">
+                Mithai &amp; Festive Feasts
+              </h3>
+              <p class="text-ivory-warm/80 text-sm sm:text-base leading-relaxed">
+                Kitchens fill with the aroma of roasted cardamom, saffron, and clarified butter as families prepare and exchange boxes of <em class="text-gold-light">motichoor ladoos</em>, silver-leafed <em class="text-gold-light">kaju katli</em>, crisp <em class="text-gold-light">chakli</em>, <em class="text-gold-light">gujiya</em>, and regional seasonal delicacies with neighbors and loved ones.
+              </p>
+            </div>
+          </div>
+
+          <!-- Ritual 4: Fireworks & Sparklers -->
+          <div class="gold-foil-card ornate-corner rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start reveal">
+            <div class="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-gold-light via-marigold to-vermilion p-0.5 shadow-lg shadow-gold/25">
+              <div class="w-full h-full bg-midnight-deep rounded-2xl flex items-center justify-center">
+                <svg class="w-9 h-9 text-marigold-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-widest text-marigold-light font-semibold">Celestial Radiance</span>
+              <h3 class="font-rozha text-2xl text-ivory mt-1 mb-2">
+                Fireworks, Phuljharis &amp; Sparklers
+              </h3>
+              <p class="text-ivory-warm/80 text-sm sm:text-base leading-relaxed">
+                Celebrating collective joy under the autumn night sky with handheld sparklers (<em class="text-gold-light">phuljharis</em>), spinning ground wheels (<em class="text-gold-light">chakris</em>), and sky lanterns — echoing ancient beliefs that light and joyous sound ward off stagnation and salute the ancestors.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="rangoli-divider" aria-hidden="true"></div>
+
+    <!-- ==========================================
+         6. INTERACTIVE FEATURE: LIGHT A VIRTUAL DIYA & BLESSING GENERATOR
+    =========================================== -->
+    <section id="virtual-diya" class="py-20 lg:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Heading -->
+        <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+          <span class="text-xs sm:text-sm uppercase tracking-[0.25em] text-marigold-light font-semibold block mb-2">
+            Interactive Sacred Offering
+          </span>
+          <h2 class="font-rozha text-3xl sm:text-5xl text-gold-foil">
+            Light a Virtual Diya &amp; Blessing Generator
+          </h2>
+          <div class="w-28 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-4"></div>
+          <p class="text-ivory-warm/85 text-base sm:text-lg">
+            Kindle a sacred digital lamp from wherever you are. Enter your name, choose an auspicious blessing, and ignite the flame to generate a personalized, shareable Deepavali greeting card.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch reveal">
+          <!-- Left Column: Interactive Form & Animated Virtual Lamp -->
+          <div class="lg:col-span-6 gold-foil-card rounded-3xl p-6 sm:p-10 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-gold/25 pb-4 mb-6">
+                <div>
+                  <h3 class="font-rozha text-2xl text-ivory">Kindle Your Sacred Lamp</h3>
+                  <p class="text-xs text-ivory-muted">Click the wick or use the form below to awaken the flame</p>
+                </div>
+                <span id="diya-status-badge" class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-midnight-deep text-ivory-muted border border-gold/30">
+                  Unlit • Ready
+                </span>
+              </div>
+
+              <!-- Interactive Animated Diya Stage -->
+              <div id="virtual-diya-stage" class="relative h-64 rounded-2xl bg-gradient-to-b from-midnight-deep via-midnight to-midnight-deep border border-gold/25 flex flex-col items-center justify-center overflow-hidden mb-6 cursor-pointer group" title="Click to light or re-spark the Diya">
+                <!-- Burst Particle Canvas for Virtual Diya -->
+                <canvas id="diya-spark-canvas" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
+
+                <!-- Glowing Bloom Backdrop (activates when lit) -->
+                <div id="virtual-diya-bloom" class="absolute w-48 h-48 rounded-full bg-gradient-to-r from-gold/0 via-marigold/0 to-vermilion/0 blur-2xl transition-all duration-700 pointer-events-none"></div>
+
+                <!-- Interactive SVG Diya -->
+                <svg class="relative z-10 w-44 h-44 transition-transform duration-500 group-hover:scale-105" viewBox="0 0 200 200" fill="none">
+                  <!-- Animated Flame Group (Hidden until lit) -->
+                  <g id="virtual-flame" class="virtual-flame-group">
+                    <circle cx="100" cy="64" r="42" fill="url(#vAura)" class="diya-halo" />
+                    <g class="diya-flame">
+                      <path d="M100 18C100 18 126 50 126 74C126 90 114.4 102 100 102C85.6 102 74 90 74 74C74 50 100 18 100 18Z" fill="url(#vFlameOuter)" />
+                      <path d="M100 36C100 36 116 57 116 74C116 84 109 92 100 92C91 92 84 84 84 74C84 57 100 36 100 36Z" fill="#FFD700" />
+                      <ellipse cx="100" cy="80" rx="7" ry="12" fill="#FFFDF8" />
+                    </g>
+                  </g>
+
+                  <!-- Cotton Wick -->
+                  <path d="M100 96V108" stroke="#F5E08E" stroke-width="4" stroke-linecap="round" />
+
+                  <!-- Diya Rim & Oil -->
+                  <ellipse cx="100" cy="110" rx="62" ry="13" fill="#4A0707" stroke="#D4AF37" stroke-width="2" />
+                  <ellipse cx="100" cy="110" rx="54" ry="9" fill="#8E1616" />
+
+                  <!-- Diya Clay Bowl -->
+                  <path d="M38 110C45 150 72 168 100 168C128 168 155 150 162 110C142 120 121 123 100 123C79 123 58 120 38 110Z" fill="url(#vClay)" stroke="#FFD700" stroke-width="2" />
+                  <path d="M54 128C70 140 85 144 100 144C115 144 130 140 146 128" stroke="#F5E08E" stroke-width="1.6" stroke-dasharray="4 4" />
+                  <path d="M76 166L70 178H130L124 166H76Z" fill="#D4AF37" />
+
+                  <defs>
+                    <radialGradient id="vAura" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 64) scale(42)">
+                      <stop stop-color="#FFD700" stop-opacity="0.7" />
+                      <stop offset="1" stop-color="#FF8F00" stop-opacity="0" />
+                    </radialGradient>
+                    <linearGradient id="vFlameOuter" x1="100" y1="18" x2="100" y2="102" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#FFF3B0" />
+                      <stop offset="0.5" stop-color="#FF8F00" />
+                      <stop offset="1" stop-color="#B71C1C" />
+                    </linearGradient>
+                    <linearGradient id="vClay" x1="38" y1="110" x2="162" y2="168" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#B71C1C" />
+                      <stop offset="0.5" stop-color="#7F0000" />
+                      <stop offset="1" stop-color="#4A0707" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+                <p id="diya-stage-caption" class="relative z-10 text-xs text-gold-light/90 tracking-wider uppercase mt-1">
+                  Click "Light Diya" below to illuminate
+                </p>
+              </div>
+
+              <!-- Blessing Generator Form -->
+              <form id="diya-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="visitor-name" class="block text-xs font-semibold uppercase tracking-wider text-gold-light mb-1.5">
+                      Your Name (Sender)
+                    </label>
+                    <input
+                      id="visitor-name"
+                      type="text"
+                      maxlength="40"
+                      placeholder="e.g., Aarav & Family"
+                      class="w-full px-4 py-3 rounded-xl bg-midnight-deep/90 border border-gold/40 text-ivory placeholder-ivory-muted/50 focus:outline-none focus:border-gold-bright focus:ring-1 focus:ring-gold-bright text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label for="recipient-name" class="block text-xs font-semibold uppercase tracking-wider text-gold-light mb-1.5">
+                      Dedicated To (Optional)
+                    </label>
+                    <input
+                      id="recipient-name"
+                      type="text"
+                      maxlength="40"
+                      placeholder="e.g., Loved Ones & Friends"
+                      class="w-full px-4 py-3 rounded-xl bg-midnight-deep/90 border border-gold/40 text-ivory placeholder-ivory-muted/50 focus:outline-none focus:border-gold-bright focus:ring-1 focus:ring-gold-bright text-sm"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="blessing-select" class="block text-xs font-semibold uppercase tracking-wider text-gold-light mb-1.5">
+                    Select a Sacred Festive Wish / Blessing
+                  </label>
+                  <select
+                    id="blessing-select"
+                    class="w-full px-4 py-3 rounded-xl bg-midnight-deep/90 border border-gold/40 text-ivory focus:outline-none focus:border-gold-bright focus:ring-1 focus:ring-gold-bright text-sm"
+                  >
+                    <option value="Prosperity">✨ Prosperity &amp; Abundance (Shri Lakshmi Krupa)</option>
+                    <option value="Health">🌿 Vibrant Health &amp; Longevity (Dhanvantari Ashirwad)</option>
+                    <option value="Inner Peace">🕊️ Inner Peace &amp; Spiritual Clarity (Atma Jyoti)</option>
+                    <option value="Success">🏆 Wisdom, New Beginnings &amp; Success (Shubh Labh)</option>
+                    <option value="Harmony">🌺 Family Harmony &amp; Unbreakable Bonds (Prem &amp; Ekta)</option>
+                  </select>
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                  <button
+                    type="submit"
+                    id="light-diya-btn"
+                    class="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-midnight-deep bg-gradient-to-r from-gold-light via-gold to-marigold hover:brightness-110 shadow-lg shadow-marigold/25 transition-all"
+                  >
+                    <span>🪔 Light Diya &amp; Generate Blessing</span>
+                  </button>
+                  <button
+                    type="button"
+                    id="reset-diya-btn"
+                    class="px-4 py-3.5 rounded-xl font-medium text-xs uppercase tracking-wider border border-gold/35 text-ivory-muted hover:text-ivory hover:border-gold transition"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right Column: Personalized Copyable/Shareable Festive Greeting Card -->
+          <div class="lg:col-span-6 flex flex-col justify-between">
+            <div id="greeting-card-preview" class="gold-foil-card rounded-3xl p-6 sm:p-10 relative overflow-hidden flex-1 flex flex-col justify-between border-2 border-gold/50">
+              <!-- Subtle Corner Mandala Watermark -->
+              <div class="absolute -right-16 -bottom-16 w-64 h-64 opacity-10 pointer-events-none" aria-hidden="true">
+                <svg viewBox="0 0 200 200" fill="none">
+                  <circle cx="100" cy="100" r="90" stroke="#FFD700" stroke-width="2" stroke-dasharray="4 4" />
+                  <circle cx="100" cy="100" r="65" stroke="#FF8F00" stroke-width="2" />
+                  <circle cx="100" cy="100" r="40" stroke="#B71C1C" stroke-width="3" />
+                </svg>
+              </div>
+
+              <!-- Card Top Header -->
+              <div class="flex items-center justify-between border-b border-gold/25 pb-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-xl">🪔</span>
+                  <span class="text-xs uppercase tracking-[0.22em] text-gold-light font-semibold">
+                    Shubh Deepavali Greeting Card
+                  </span>
+                </div>
+                <span id="card-theme-pill" class="px-3 py-1 rounded-full text-xs font-semibold bg-vermilion/60 text-gold-light border border-gold/40">
+                  Blessing of Prosperity
+                </span>
+              </div>
+
+              <!-- Card Center Body -->
+              <div class="my-8 space-y-5 text-center sm:text-left">
+                <p id="card-salutation" class="font-playfair italic text-gold-light text-lg">
+                  Dearest Loved Ones &amp; Friends,
+                </p>
+
+                <blockquote id="card-message" class="font-rozha text-2xl sm:text-3xl text-ivory leading-snug">
+                  "May the golden glow of a thousand diyas fill your home with boundless prosperity, auspicious fortune, and the eternal grace of Goddess Lakshmi."
+                </blockquote>
+
+                <p id="card-submessage" class="text-sm text-ivory-warm/80 leading-relaxed">
+                  As this sacred lamp shines bright against the autumn night, may every shadow of doubt give way to joy, wisdom, and luminous new beginnings across all five days of Deepavali.
+                </p>
+              </div>
+
+              <!-- Card Footer Sign-off & Actions -->
+              <div class="pt-5 border-t border-gold/25 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <span class="text-xs uppercase tracking-widest text-ivory-muted block">Lit with warmth &amp; devotion by</span>
+                  <span id="card-sender" class="font-rozha text-xl text-gold-foil">Aarav &amp; Family</span>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <button
+                    type="button"
+                    id="copy-wish-btn"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider bg-gold/20 hover:bg-gold/30 text-gold-light border border-gold/50 transition"
+                  >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    <span id="copy-btn-label">Copy Greeting</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    id="share-wish-btn"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider bg-vermilion/80 hover:bg-vermilion text-ivory border border-gold/40 transition"
+                  >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                    </svg>
+                    <span>Share Wish</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Feedback Toast Banner inside Card -->
+              <div id="copy-toast" class="hidden mt-4 px-4 py-2.5 rounded-xl bg-marigold/20 border border-gold text-gold-light text-xs font-medium text-center">
+                ✨ Festive blessing copied to your clipboard! Ready to share with your loved ones.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="rangoli-divider" aria-hidden="true"></div>
+
+    <!-- ==========================================
+         7. SACRED SHLOKAS & MANTRAS (+ FESTIVE WISHES)
+    =========================================== -->
+    <section id="festive-wishes" class="py-20 lg:py-28 relative">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Sacred Shloka Centerpiece -->
+        <div class="gold-foil-card rounded-3xl p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden mb-16 reveal">
+          <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-gold/15 border border-gold/40 text-gold-light text-xs uppercase tracking-[0.25em] mb-6">
+            <span>Brihadaranyaka Upanishad (1.3.28) • The Pavamana Mantra</span>
+          </div>
+
+          <!-- Sanskrit Devanagari -->
+          <p class="font-rozha text-2xl sm:text-4xl text-gold-light leading-relaxed mb-4">
+            ॐ असतो मा सद्गमय । तमसो मा ज्योतिर्गमय । मृत्योर्मा अमृतं गमय ।<br />
+            ॐ शान्तिः शान्तिः शान्तिः ॥
+          </p>
+
+          <!-- Transliteration -->
+          <h2 class="font-playfair italic text-xl sm:text-3xl text-ivory font-medium max-w-3xl mx-auto mb-6">
+            "Asato Ma Sadgamaya, Tamaso Ma Jyotirgamaya, Mrityorma Amritam Gamaya"
+          </h2>
+
+          <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-marigold to-transparent mx-auto mb-6"></div>
+
+          <!-- Clear English Translation & Philosophical Meaning -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left max-w-4xl mx-auto mb-8">
+            <div class="p-5 rounded-2xl bg-midnight-deep/70 border border-gold/25">
+              <p class="font-rozha text-lg text-gold-light mb-1">Asato Ma Sadgamaya</p>
+              <p class="text-sm text-ivory-warm/85">
+                <strong>"Lead us from the unreal to the Real."</strong> Guide our minds away from fleeting illusions toward eternal truth and authentic righteousness.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-midnight-deep/70 border border-gold/25">
+              <p class="font-rozha text-lg text-gold-light mb-1">Tamaso Ma Jyotirgamaya</p>
+              <p class="text-sm text-ivory-warm/85">
+                <strong>"Lead us from darkness to Light."</strong> Awaken the inner lamp of knowledge to dissolve the shadows of ignorance, fear, and division.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-midnight-deep/70 border border-gold/25">
+              <p class="font-rozha text-lg text-gold-light mb-1">Mrityorma Amritam Gamaya</p>
+              <p class="text-sm text-ivory-warm/85">
+                <strong>"Lead us from mortality to Immortality."</strong> Elevate our consciousness from material limitation to the timeless nectar of spiritual peace.
+              </p>
+            </div>
+          </div>
+
+          <p class="text-sm sm:text-base text-ivory-muted max-w-2xl mx-auto">
+            Recited as earthen lamps are kindled on Deepavali evening, this timeless Vedic invocation reminds us that every external flame is a reflection of the undying light of consciousness within.
+          </p>
+        </div>
+
+        <!-- Curated Ready-to-Share Festive Wishes Grid -->
+        <div class="reveal">
+          <div class="text-center mb-10">
+            <span class="text-xs uppercase tracking-[0.22em] text-marigold-light font-semibold block mb-1">
+              Heartfelt Greetings
+            </span>
+            <h3 class="font-rozha text-2xl sm:text-4xl text-ivory">
+              Timeless Deepavali Wishes to Share
+            </h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="gold-foil-card rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <span class="text-xs uppercase tracking-widest text-gold-light font-semibold">For Family &amp; Home</span>
+                <p class="font-playfair italic text-ivory text-base mt-3 leading-relaxed">
+                  "May the divine radiance of Deepavali illuminate every corner of your home with laughter, warmth, and the choicest blessings of Goddess Lakshmi and Lord Ganesha."
+                </p>
+              </div>
+              <button type="button" data-quick-copy="May the divine radiance of Deepavali illuminate every corner of your home with laughter, warmth, and the choicest blessings of Goddess Lakshmi and Lord Ganesha. Shubh Deepavali!" class="quick-copy-btn mt-5 w-full py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider border border-gold/35 text-gold-light hover:bg-gold/15 transition">
+                Copy Wish
+              </button>
+            </div>
+
+            <div class="gold-foil-card rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <span class="text-xs uppercase tracking-widest text-gold-light font-semibold">For Peace &amp; Wisdom</span>
+                <p class="font-playfair italic text-ivory text-base mt-3 leading-relaxed">
+                  "Just as a single earthen diya dispels the deepest night, may this festival of lights kindle unwavering hope, clarity, and inner peace in your heart throughout the coming year."
+                </p>
+              </div>
+              <button type="button" data-quick-copy="Just as a single earthen diya dispels the deepest night, may this festival of lights kindle unwavering hope, clarity, and inner peace in your heart throughout the coming year. Happy Diwali!" class="quick-copy-btn mt-5 w-full py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider border border-gold/35 text-gold-light hover:bg-gold/15 transition">
+                Copy Wish
+              </button>
+            </div>
+
+            <div class="gold-foil-card rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <span class="text-xs uppercase tracking-widest text-gold-light font-semibold">For Prosperity &amp; New Horizons</span>
+                <p class="font-playfair italic text-ivory text-base mt-3 leading-relaxed">
+                  "From Dhanteras to Bhai Dooj, may all five days of Deepavali shower you with vibrant health, golden opportunities, sweet moments, and enduring success."
+                </p>
+              </div>
+              <button type="button" data-quick-copy="From Dhanteras to Bhai Dooj, may all five days of Deepavali shower you with vibrant health, golden opportunities, sweet moments, and enduring success. Shubh Deepavali!" class="quick-copy-btn mt-5 w-full py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider border border-gold/35 text-gold-light hover:bg-gold/15 transition">
+                Copy Wish
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       8. FOOTER
+  =========================================== -->
+  <footer class="relative z-10 bg-midnight-deep border-t border-gold/30 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-gold/20">
+        <!-- Brand & Festive Sign-Off -->
+        <div class="md:col-span-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🪔</span>
+            <span class="font-rozha text-2xl text-gold-foil">Deepavali | Festival of Lights</span>
+          </div>
+          <p class="font-playfair italic text-lg sm:text-xl text-ivory-warm max-w-xl">
+            "Wishing you and your loved ones a blessed, safe, and luminous Deepavali."
+          </p>
+          <p class="text-xs sm:text-sm text-ivory-muted max-w-md leading-relaxed">
+            A cultural and spiritual tribute to the five-day festival of lights — celebrating timeless heritage, earthen craftsmanship, and the universal light that unites every heart.
+          </p>
+        </div>
+
+        <!-- Quick Navigation Links -->
+        <div class="md:col-span-3 space-y-2.5">
+          <h4 class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-light mb-3">
+            Quick Navigation
+          </h4>
+          <ul class="space-y-2 text-sm text-ivory-warm/80">
+            <li><a href="#home" class="hover:text-gold-light transition">Home</a></li>
+            <li><a href="#significance" class="hover:text-gold-light transition">Spiritual Significance</a></li>
+            <li><a href="#five-days" class="hover:text-gold-light transition">The 5 Days of Diwali</a></li>
+            <li><a href="#rituals" class="hover:text-gold-light transition">Rituals &amp; Traditions</a></li>
+            <li><a href="#virtual-diya" class="hover:text-gold-light transition">Light a Virtual Diya</a></li>
+            <li><a href="#festive-wishes" class="hover:text-gold-light transition">Sacred Shlokas &amp; Wishes</a></li>
+          </ul>
+        </div>
+
+        <!-- The Five Days Quick Jump -->
+        <div class="md:col-span-3 space-y-2.5">
+          <h4 class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-light mb-3">
+            The Five Auspicious Days
+          </h4>
+          <ul class="space-y-2 text-sm text-ivory-warm/80">
+            <li><a href="#five-days" data-footer-day="1" class="hover:text-gold-light transition">Day 1: Dhanteras</a></li>
+            <li><a href="#five-days" data-footer-day="2" class="hover:text-gold-light transition">Day 2: Naraka Chaturdashi</a></li>
+            <li><a href="#five-days" data-footer-day="3" class="hover:text-gold-light transition">Day 3: Lakshmi Puja</a></li>
+            <li><a href="#five-days" data-footer-day="4" class="hover:text-gold-light transition">Day 4: Govardhan Puja</a></li>
+            <li><a href="#five-days" data-footer-day="5" class="hover:text-gold-light transition">Day 5: Bhai Dooj</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Credits -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory-muted">
+        <p>
+          © 2026 Deepavali Cultural Tribute • Crafted with reverence for the Festival of Lights.
+        </p>
+        <p class="flex items-center gap-2">
+          <span> शुभ दीपावली </span>
+          <span>•</span>
+          <span>तमसो मा ज्योतिर्गमय</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       VANILLA JAVASCRIPT INTERACTIVITY
+  =========================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* -----------------------------------------------------------
+       * 1. MOBILE MENU TOGGLE
+       * --------------------------------------------------------- */
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileMenu(forceClose) {
+        const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+        const nextState = forceClose ? false : !isExpanded;
+        mobileMenuBtn.setAttribute('aria-expanded', String(nextState));
+        mobileMenu.classList.toggle('hidden', !nextState);
+        iconOpen.classList.toggle('hidden', nextState);
+        iconClose.classList.toggle('hidden', !nextState);
+      }
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function () {
+          toggleMobileMenu(false);
+        });
+      }
+
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          toggleMobileMenu(true);
+        });
+      });
+
+      /* -----------------------------------------------------------
+       * 2. INTERACTIVE 5 DAYS OF DIWALI TIMELINE / STEPPER
+       * --------------------------------------------------------- */
+      const daysData = {
+        1: {
+          badge: 'Day 1 • Trayodashi',
+          tithi: 'Kartika Krishna Trayodashi',
+          title: 'Day 1: Dhanteras (Dhanatrayodashi)',
+          desc: 'Marking the auspicious commencement of the five-day festival, Dhanteras honors Lord Dhanvantari — the divine physician of the gods and promulgator of Ayurveda — alongside Goddess Lakshmi and Lord Kubera. Families thoroughly cleanse and decorate their homes, light thirteen earthen lamps at dusk (Yama Deepam), and purchase gold, silver, or new brass and copper utensils as tokens of enduring health and prosperity.',
+          deity: 'Lord Dhanvantari, Goddess Lakshmi & Kubera',
+          custom: 'Buying Gold/Utensils & Lighting Yama Deepam',
+          blessing: 'Holistic Health, Longevity & Fortune',
+          icon: '🏺',
+          mantra: '"Om Shree Dhanvantre Namaha — Invoking healing nectar and auspicious beginnings."'
+        },
+        2: {
+          badge: 'Day 2 • Chaturdashi',
+          tithi: 'Kartika Krishna Chaturdashi',
+          title: 'Day 2: Naraka Chaturdashi / Choti Diwali',
+          desc: 'Commemorating the victory of Lord Krishna and Queen Satyabhama over the tyrant demon Narakasura and the liberation of 16,000 captives, Choti Diwali symbolizes the removal of spiritual lethargy and evil. Observances begin before sunrise with a fragrant herbal and sesame oil bath (Abhyanga Snan), followed by drawing threshold rangolis and lighting fourteen lamps around the home.',
+          deity: 'Lord Krishna, Satyabhama & Kali Mata',
+          custom: 'Pre-Dawn Abhyanga Snan & Cleansing Rituals',
+          blessing: 'Liberation from Negativity & Renewal',
+          icon: '🪔',
+          mantra: '"Victory of inner clarity over darkness, preparing the heart for sacred light."'
+        },
+        3: {
+          badge: 'Day 3 • Amavasya (Main Festival)',
+          tithi: 'Kartika Amavasya',
+          title: 'Day 3: Lakshmi Puja / Deepavali',
+          desc: 'The luminous pinnacle of the five-day celebration. On the darkest new-moon night of Kartika, families dress in festive finery and perform sacred Lakshmi-Ganesha Puja during Pradosh Kaal. Hundreds of clay diyas transform homes into constellations of gold, welcoming Goddess Lakshmi, Lord Ganesha, and Goddess Saraswati, followed by joyous feasts, sweets, and sparkling light displays.',
+          deity: 'Goddess Lakshmi, Lord Ganesha & Saraswati',
+          custom: 'Lakshmi Pujan, Lighting Clay Diyas & Sharing Mithai',
+          blessing: 'Abundance, Wisdom & Auspicious Harmony',
+          icon: '🪷',
+          mantra: '"Om Shreem Mahalakshmyai Namaha — Welcoming divine grace into every threshold."'
+        },
+        4: {
+          badge: 'Day 4 • Pratipada',
+          tithi: 'Kartika Shukla Pratipada',
+          title: 'Day 4: Govardhan Puja / Annakut & Bestu Varas',
+          desc: 'Honoring the legendary episode when young Lord Krishna lifted Mount Govardhan on his little finger for seven days to shelter the villagers and cattle of Braj from torrential rains. Devotees sculpt miniature symbolic hills, offer grand mountains of 56 vegetarian delicacies (Chhappan Bhog / Annakut) in gratitude to nature, and celebrate the auspicious Gujarati New Year (Bestu Varas) and Bali Pratipada.',
+          deity: 'Lord Krishna (Giridhari) & Mother Nature',
+          custom: 'Annakut Food Offerings & Gujarati New Year',
+          blessing: 'Ecological Gratitude, Nourishment & Shelter',
+          icon: '⛰️',
+          mantra: '"Saluting the sacred harmony between humanity, nature, and divine protection."'
+        },
+        5: {
+          badge: 'Day 5 • Dwitiya',
+          tithi: 'Kartika Shukla Dwitiya',
+          title: 'Day 5: Bhai Dooj / Yama Dwitiya (Bhau Beej)',
+          desc: 'Bringing the five-day festival to a heartwarming conclusion, Bhai Dooj celebrates the sacred bond between brothers and sisters. Rooted in the legend of Yamuna welcoming her brother Yama (and Lord Krishna visiting Subhadra after slaying Narakasura), sisters apply an auspicious vermilion and rice tilak on their brothers’ foreheads, perform aarti, and exchange prayers for lifelong protection and joy.',
+          deity: 'Yamuna & Yama, Lord Krishna & Subhadra',
+          custom: 'Ceremonial Sister-Brother Tilak, Aarti & Feasts',
+          blessing: 'Lifelong Protection, Kinship & Affection',
+          icon: '🌺',
+          mantra: '"Celebrating the eternal thread of love, care, and mutual devotion across generations."'
+        }
+      };
+
+      let currentDay = 1;
+      const dayTabs = document.querySelectorAll('.day-tab');
+      const dayCards = document.querySelectorAll('[data-day-card]');
+      const footerDayLinks = document.querySelectorAll('[data-footer-day]');
+
+      const spotlightBadge = document.getElementById('spotlight-badge');
+      const spotlightTithi = document.getElementById('spotlight-tithi');
+      const spotlightTitle = document.getElementById('spotlight-title');
+      const spotlightDesc = document.getElementById('spotlight-desc');
+      const spotlightDeity = document.getElementById('spotlight-deity');
+      const spotlightCustom = document.getElementById('spotlight-custom');
+      const spotlightBlessing = document.getElementById('spotlight-blessing');
+      const spotlightIcon = document.getElementById('spotlight-icon');
+      const spotlightMantra = document.getElementById('spotlight-mantra');
+
+      function selectDay(dayNum) {
+        currentDay = Number(dayNum);
+        const data = daysData[currentDay];
+        if (!data) return;
+
+        // Update Tabs
+        dayTabs.forEach(function (tab) {
+          const isMatch = Number(tab.getAttribute('data-day')) === currentDay;
+          tab.classList.toggle('active', isMatch);
+          tab.setAttribute('aria-selected', String(isMatch));
+        });
+
+        // Update Bottom Mini Cards ring
+        dayCards.forEach(function (card) {
+          const isMatch = Number(card.getAttribute('data-day-card')) === currentDay;
+          card.classList.toggle('ring-2', isMatch);
+          card.classList.toggle('ring-gold', isMatch);
+        });
+
+        // Update Spotlight Content
+        spotlightBadge.textContent = data.badge;
+        spotlightTithi.textContent = data.tithi;
+        spotlightTitle.textContent = data.title;
+        spotlightDesc.textContent = data.desc;
+        spotlightDeity.textContent = data.deity;
+        spotlightCustom.textContent = data.custom;
+        spotlightBlessing.textContent = data.blessing;
+        spotlightIcon.innerHTML = '<div class="w-full h-full rounded-full bg-midnight-deep flex items-center justify-center text-3xl">' + data.icon + '</div>';
+        spotlightMantra.textContent = data.mantra;
+      }
+
+      dayTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          selectDay(tab.getAttribute('data-day'));
+        });
+      });
+
+      dayCards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          selectDay(card.getAttribute('data-day-card'));
+          document.getElementById('day-spotlight').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+      });
+
+      footerDayLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          selectDay(link.getAttribute('data-footer-day'));
+        });
+      });
+
+      document.getElementById('prev-day-btn').addEventListener('click', function () {
+        const prev = currentDay <= 1 ? 5 : currentDay - 1;
+        selectDay(prev);
+      });
+
+      document.getElementById('next-day-btn').addEventListener('click', function () {
+        const next = currentDay >= 5 ? 1 : currentDay + 1;
+        selectDay(next);
+      });
+
+      /* -----------------------------------------------------------
+       * 3. INTERACTIVE VIRTUAL DIYA & BLESSING GENERATOR
+       * --------------------------------------------------------- */
+      const blessingsLibrary = {
+        Prosperity: {
+          pill: 'Blessing of Prosperity',
+          quote: '"May the golden glow of a thousand diyas fill your home with boundless prosperity, auspicious fortune, and the eternal grace of Goddess Lakshmi."',
+          sub: 'As this sacred lamp shines bright against the autumn night, may every shadow of doubt give way to abundance, gratitude, and luminous new beginnings across all five days of Deepavali.'
+        },
+        Health: {
+          pill: 'Blessing of Vibrant Health',
+          quote: '"May the healing nectar of Lord Dhanvantari and the warm radiance of Deepavali bless you and your family with enduring vitality, strength, and joyful longevity."',
+          sub: 'May every earthen diya kindled on this auspicious festival nurture peace of mind, wholesome energy, and flourishing well-being throughout the year ahead.'
+        },
+        'Inner Peace': {
+          pill: 'Blessing of Inner Peace',
+          quote: '"Tamaso Ma Jyotirgamaya — May the tranquil flame of this sacred diya awaken inner stillness, clarity of spirit, and unshakeable serenity within your heart."',
+          sub: 'May the gentle light of Deepavali dissolve every worry and illuminate your path with mindfulness, compassion, and spiritual harmony.'
+        },
+        Success: {
+          pill: 'Blessing of Wisdom & Success',
+          quote: '"With the auspicious blessings of Lord Ganesha and Goddess Saraswati, may every obstacle transform into a stepping stone toward noble purpose and radiant success."',
+          sub: 'May this festival of lights inspire fresh creativity, courageous beginnings, and fulfillment in all your endeavors.'
+        },
+        Harmony: {
+          pill: 'Blessing of Family Harmony',
+          quote: '"From the joyous return to Ayodhya to the tender bond of Bhai Dooj, may your home forever echo with togetherness, sweet laughter, and unconditional love."',
+          sub: 'May the sweetness of festive mithai and the glow of shared diyas strengthen every cherished relationship in your life.'
+        }
+      };
+
+      const diyaForm = document.getElementById('diya-form');
+      const visitorNameInput = document.getElementById('visitor-name');
+      const recipientNameInput = document.getElementById('recipient-name');
+      const blessingSelect = document.getElementById('blessing-select');
+      const virtualFlame = document.getElementById('virtual-flame');
+      const virtualBloom = document.getElementById('virtual-diya-bloom');
+      const diyaStatusBadge = document.getElementById('diya-status-badge');
+      const diyaStageCaption = document.getElementById('diya-stage-caption');
+      const virtualDiyaStage = document.getElementById('virtual-diya-stage');
+      const resetDiyaBtn = document.getElementById('reset-diya-btn');
+      const heroDiyaCountEl = document.getElementById('hero-diya-count');
+
+      const cardThemePill = document.getElementById('card-theme-pill');
+      const cardSalutation = document.getElementById('card-salutation');
+      const cardMessage = document.getElementById('card-message');
+      const cardSubmessage = document.getElementById('card-submessage');
+      const cardSender = document.getElementById('card-sender');
+      const copyWishBtn = document.getElementById('copy-wish-btn');
+      const copyBtnLabel = document.getElementById('copy-btn-label');
+      const shareWishBtn = document.getElementById('share-wish-btn');
+      const copyToast = document.getElementById('copy-toast');
+
+      let communityCount = 108421;
+      let isDiyaLit = false;
+
+      // Spark particle burst inside Virtual Diya Stage
+      const sparkCanvas = document.getElementById('diya-spark-canvas');
+      const sparkCtx = sparkCanvas.getContext('2d');
+      let sparks = [];
+
+      function resizeSparkCanvas() {
+        const rect = virtualDiyaStage.getBoundingClientRect();
+        sparkCanvas.width = rect.width || 400;
+        sparkCanvas.height = rect.height || 260;
+      }
+      window.addEventListener('resize', resizeSparkCanvas);
+      resizeSparkCanvas();
+
+      function triggerGoldenSparks() {
+        resizeSparkCanvas();
+        const centerX = sparkCanvas.width / 2;
+        const centerY = sparkCanvas.height * 0.36;
+        for (let i = 0; i < 48; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 1 + Math.random() * 4.2;
+          sparks.push({
+            x: centerX,
+            y: centerY,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 1.2,
+            radius: 1.5 + Math.random() * 2.8,
+            alpha: 1,
+            color: i % 3 === 0 ? '#FFD700' : i % 3 === 1 ? '#FF8F00' : '#FFFDF8'
+          });
+        }
+      }
+
+      function animateSparks() {
+        sparkCtx.clearRect(0, 0, sparkCanvas.width, sparkCanvas.height);
+        for (let i = sparks.length - 1; i >= 0; i--) {
+          const p = sparks[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy -= 0.02; // gentle upward float
+          p.alpha -= 0.016;
+          if (p.alpha <= 0) {
+            sparks.splice(i, 1);
+            continue;
+          }
+          sparkCtx.save();
+          sparkCtx.globalAlpha = Math.max(0, p.alpha);
+          sparkCtx.fillStyle = p.color;
+          sparkCtx.shadowColor = '#FFD700';
+          sparkCtx.shadowBlur = 8;
+          sparkCtx.beginPath();
+          sparkCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          sparkCtx.fill();
+          sparkCtx.restore();
+        }
+        requestAnimationFrame(animateSparks);
+      }
+      animateSparks();
+
+      function updateGreetingCard() {
+        const sender = (visitorNameInput.value || '').trim() || 'A Well-Wisher';
+        const recipient = (recipientNameInput.value || '').trim() || 'Loved Ones & Friends';
+        const blessingKey = blessingSelect.value || 'Prosperity';
+        const entry = blessingsLibrary[blessingKey] || blessingsLibrary.Prosperity;
+
+        cardThemePill.textContent = entry.pill;
+        cardSalutation.textContent = 'Dearest ' + recipient + ',';
+        cardMessage.textContent = entry.quote;
+        cardSubmessage.textContent = entry.sub;
+        cardSender.textContent = sender;
+      }
+
+      function lightVirtualDiya() {
+        updateGreetingCard();
+        virtualFlame.classList.add('lit');
+        virtualBloom.className = 'absolute w-56 h-56 rounded-full bg-gradient-to-r from-gold/35 via-marigold/35 to-vermilion/30 blur-2xl transition-all duration-700 pointer-events-none';
+        diyaStatusBadge.textContent = '✨ Sacred Diya Lit';
+        diyaStatusBadge.className = 'px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-marigold/25 text-gold-light border border-gold';
+        diyaStageCaption.textContent = 'Shubh Deepavali! Your lamp is radiating light & blessings';
+
+        if (!isDiyaLit) {
+          isDiyaLit = true;
+          communityCount += 1;
+          heroDiyaCountEl.textContent = communityCount.toLocaleString('en-IN') + '+';
+        }
+        triggerGoldenSparks();
+      }
+
+      diyaForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        lightVirtualDiya();
+      });
+
+      virtualDiyaStage.addEventListener('click', function () {
+        lightVirtualDiya();
+      });
+
+      visitorNameInput.addEventListener('input', updateGreetingCard);
+      recipientNameInput.addEventListener('input', updateGreetingCard);
+      blessingSelect.addEventListener('change', function () {
+        updateGreetingCard();
+        if (isDiyaLit) {
+          triggerGoldenSparks();
+        }
+      });
+
+      resetDiyaBtn.addEventListener('click', function () {
+        visitorNameInput.value = '';
+        recipientNameInput.value = '';
+        blessingSelect.value = 'Prosperity';
+        virtualFlame.classList.remove('lit');
+        virtualBloom.className = 'absolute w-48 h-48 rounded-full bg-gradient-to-r from-gold/0 via-marigold/0 to-vermilion/0 blur-2xl transition-all duration-700 pointer-events-none';
+        diyaStatusBadge.textContent = 'Unlit • Ready';
+        diyaStatusBadge.className = 'px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-midnight-deep text-ivory-muted border border-gold/30';
+        diyaStageCaption.textContent = 'Click "Light Diya" below to illuminate';
+        isDiyaLit = false;
+        updateGreetingCard();
+        copyToast.classList.add('hidden');
+      });
+
+      function buildShareText() {
+        return (
+          '🪔 Shubh Deepavali! 🪔\n\n' +
+          cardSalutation.textContent + '\n' +
+          cardMessage.textContent + '\n\n' +
+          cardSubmessage.textContent + '\n\n' +
+          '— Lit with warmth & devotion by ' + cardSender.textContent
+        );
+      }
+
+      function copyTextToClipboard(text, onDone) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(onDone).catch(function () {
+            fallbackCopy(text, onDone);
+          });
+        } else {
+          fallbackCopy(text, onDone);
+        }
+      }
+
+      function fallbackCopy(text, onDone) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+        } catch (err) {}
+        document.body.removeChild(ta);
+        if (onDone) onDone();
+      }
+
+      copyWishBtn.addEventListener('click', function () {
+        copyTextToClipboard(buildShareText(), function () {
+          copyBtnLabel.textContent = 'Copied!';
+          copyToast.classList.remove('hidden');
+          setTimeout(function () {
+            copyBtnLabel.textContent = 'Copy Greeting';
+          }, 2500);
+        });
+      });
+
+      shareWishBtn.addEventListener('click', function () {
+        const text = buildShareText();
+        if (navigator.share) {
+          navigator.share({
+            title: 'Shubh Deepavali Blessing',
+            text: text
+          }).catch(function () {});
+        } else {
+          copyTextToClipboard(text, function () {
+            copyToast.classList.remove('hidden');
+          });
+        }
+      });
+
+      // Quick Copy Buttons in Festive Wishes Grid
+      document.querySelectorAll('.quick-copy-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const text = btn.getAttribute('data-quick-copy');
+          copyTextToClipboard(text, function () {
+            const orig = btn.textContent;
+            btn.textContent = '✓ Copied to Clipboard!';
+            setTimeout(function () {
+              btn.textContent = orig;
+            }, 2200);
+          });
+        });
+      });
+
+      /* -----------------------------------------------------------
+       * 4. AMBIENT FLOATING LIGHT PARTICLES BACKGROUND
+       * --------------------------------------------------------- */
+      const bgCanvas = document.getElementById('particles-canvas');
+      const bgCtx = bgCanvas.getContext('2d');
+      let ambientParticles = [];
+
+      function initAmbientCanvas() {
+        bgCanvas.width = window.innerWidth;
+        bgCanvas.height = window.innerHeight;
+        const count = Math.min(45, Math.floor(window.innerWidth / 32));
+        ambientParticles = [];
+        for (let i = 0; i < count; i++) {
+          ambientParticles.push({
+            x: Math.random() * bgCanvas.width,
+            y: Math.random() * bgCanvas.height,
+            r: 1 + Math.random() * 2.2,
+            vx: (Math.random() - 0.5) * 0.25,
+            vy: -0.15 - Math.random() * 0.35,
+            alpha: 0.15 + Math.random() * 0.55,
+            pulseSpeed: 0.008 + Math.random() * 0.015,
+            phase: Math.random() * Math.PI * 2
+          });
+        }
+      }
+
+      function animateAmbientParticles() {
+        bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+        for (let i = 0; i < ambientParticles.length; i++) {
+          const p = ambientParticles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.phase += p.pulseSpeed;
+
+          if (p.y < -10) p.y = bgCanvas.height + 10;
+          if (p.x < -10) p.x = bgCanvas.width + 10;
+          if (p.x > bgCanvas.width + 10) p.x = -10;
+
+          const currentAlpha = p.alpha * (0.65 + 0.35 * Math.sin(p.phase));
+          bgCtx.save();
+          bgCtx.globalAlpha = currentAlpha;
+          bgCtx.fillStyle = '#FFD700';
+          bgCtx.shadowColor = '#FF8F00';
+          bgCtx.shadowBlur = 6;
+          bgCtx.beginPath();
+          bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          bgCtx.fill();
+          bgCtx.restore();
+        }
+        requestAnimationFrame(animateAmbientParticles);
+      }
+
+      window.addEventListener('resize', initAmbientCanvas);
+      initAmbientCanvas();
+      animateAmbientParticles();
+
+      /* -----------------------------------------------------------
+       * 5. SCROLL REVEAL OBSERVER
+       * --------------------------------------------------------- */
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        revealEls.forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        revealEls.forEach(function (el) {
+          el.classList.add('visible');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
