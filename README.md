@@ -41,7 +41,7 @@
 
 | Layer | Technology |
 | :--- | :--- |
-| **Markup & Structure** | Semantic HTML5, Open Graph & Twitter Card Meta Tags |
+| **Markup & Structure** | Semantic HTML5, Canonical, Open Graph & Twitter Card Meta Tags |
 | **Styling & Theme** | [Tailwind CSS](https://tailwindcss.com/) (CDN) + Custom CSS Variables, Keyframes & Gold-Foil Masks |
 | **Typography** | Google Fonts (`Rozha One`, `Cinzel Decorative`, `Playfair Display`, `Poppins`) |
 | **Graphics & Animation** | Custom Inline SVGs, HTML5 2D Canvas (Particle Systems & `1200×800` PNG Card Renderer) |
@@ -57,8 +57,9 @@ Diwali2026/
 ├── .github/
 │   └── workflows/
 │       └── static.yml    # Automated GitHub Pages deployment workflow
-├── favicon.svg           # Custom vector glowing clay diya favicon
-├── og-image.svg          # 1200×630 Open Graph social sharing banner
+├── favicon.svg           # Custom vector glowing clay diya favicon (64×64)
+├── og-image.png          # 1200×630 PNG Open Graph banner for social media link previews
+├── og-image.svg          # 1200×630 SVG editable vector master of the Open Graph banner
 ├── index.html            # Complete single-page application (HTML, CSS, SVG & JS)
 ├── LICENSE               # The Unlicense (Public Domain)
 ├── GEMINI.md             # AI assistant architectural context & guide
@@ -67,12 +68,55 @@ Diwali2026/
 
 ---
 
+## 🔗 Open Graph (OG) & Social Sharing Setup
+
+To ensure rich preview cards render properly when sharing the link on **WhatsApp, Facebook, LinkedIn, X (Twitter), Discord, and Slack**, [`index.html`](./index.html) is configured with complete Open Graph and Twitter Card metadata.
+
+### Why Absolute URLs & PNG Are Required
+1. **Absolute HTTPS Links**: Social media crawlers do not resolve relative file paths (like `./og-image.png`). All URL properties (`og:url`, `og:image`, `og:image:secure_url`, `twitter:url`, `twitter:image`, and `canonical`) **must** be full `https://` URLs pointing to your live deployed site.
+2. **Raster PNG Format (`1200×630`)**: Most social platforms (especially WhatsApp, Facebook, and X) ignore `.svg` images in Open Graph tags. This repository includes both [`og-image.svg`](./og-image.svg) (vector design source) and [`og-image.png`](./og-image.png) (the `1200×630` raster PNG served to social crawlers).
+
+### How to Add or Update OG Links for Your Own Deployment
+If you fork this repository or deploy it under a custom domain, update lines **17–39** inside the `<head>` of [`index.html`](./index.html) by replacing `https://parbonstatic.github.io/Diwali2026/` with your own live deployment URL:
+
+```html
+<!-- Canonical & Open Graph / Facebook / WhatsApp / LinkedIn Meta Tags -->
+<link rel="canonical" href="https://YOUR-DOMAIN-OR-USERNAME.github.io/YOUR-REPO/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Deepavali | Festival of Lights" />
+<meta property="og:locale" content="en_IN" />
+<meta property="og:url" content="https://YOUR-DOMAIN-OR-USERNAME.github.io/YOUR-REPO/" />
+<meta property="og:title" content="Illuminating Hearts & Homes | Deepavali — Five-Day Festival of Lights" />
+<meta property="og:description" content="Explore the spiritual significance, the 5 sacred days of Diwali (Dhanteras to Bhai Dooj), timeless traditions, and light a virtual diya to download a personalized blessing card." />
+<meta property="og:image" content="https://YOUR-DOMAIN-OR-USERNAME.github.io/YOUR-REPO/og-image.png" />
+<meta property="og:image:secure_url" content="https://YOUR-DOMAIN-OR-USERNAME.github.io/YOUR-REPO/og-image.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Glowing earthen clay diya lamp surrounded by golden rangoli motifs with the headline Illuminating Hearts & Homes | Deepavali" />
+
+<!-- Twitter / X Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://YOUR-DOMAIN-OR-USERNAME.github.io/YOUR-REPO/" />
+<meta name="twitter:title" content="Illuminating Hearts & Homes | Deepavali — Festival of Lights" />
+<meta name="twitter:description" content="Celebrate the triumph of light over darkness. Explore the 5 days of Diwali, light an interactive virtual diya, and download your custom festive blessing card." />
+<meta name="twitter:image" content="https://YOUR-DOMAIN-OR-USERNAME.github.io/YOUR-REPO/og-image.png" />
+<meta name="twitter:image:alt" content="Shubh Deepavali — Illuminating Hearts & Homes | Five-Day Festival Tribute" />
+```
+
+### Customizing the Social Preview Banner
+1. Edit the vector artwork or text in [`og-image.svg`](./og-image.svg).
+2. Export/convert [`og-image.svg`](./og-image.svg) to [`og-image.png`](./og-image.png) at **`1200×630` pixels**.
+3. Commit and push both files so your deployed `https://<your-domain>/og-image.png` serves the updated preview image.
+
+---
+
 ## 🚀 Getting Started Locally
 
-Because this project is built with a **zero-build static architecture**, no package installation or compilation step is required.
+Because this project uses a **zero-build static architecture**, no package installation or build step is required.
 
 ### Option 1: Open Directly
-Simply double-click [`index.html`](./index.html) or open it in any modern browser.
+Simply double-click [`index.html`](./index.html) or open it in any modern web browser.
 
 ### Option 2: Run a Local Static Server
 If you prefer serving over `http://localhost`:
@@ -85,7 +129,7 @@ python -m http.server 8080
 npx serve .
 ```
 
-Then visit `http://localhost:8080` in your browser.
+Then open `http://localhost:8080` in your browser.
 
 ---
 
@@ -99,4 +143,3 @@ This project is released into the public domain under **[The Unlicense](./LICENS
   <strong>🪔 शुभ दीपावली • तमसो मा ज्योतिर्गमय 🪔</strong><br/>
   <em>May the eternal light of Deepavali illuminate every heart and home.</em>
 </p>
-
